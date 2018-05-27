@@ -8,9 +8,13 @@ import './App.css'
 class App extends Component {
   render () {
     return (
-      <StripeProvider apiKey={process.env.REACT_APP_STRIPE_API_KEY}>
-        <FormWrapper />
-      </StripeProvider>
+      process.env.NODE_ENV === 'development'
+        ? <StripeProvider apiKey={config.stripeTestApiKey}>
+          <FormWrapper />
+        </StripeProvider>
+        : <StripeProvider apiKey={config.stripeProdApiKey}>
+          <FormWrapper />
+        </StripeProvider>
     )
   }
 }
