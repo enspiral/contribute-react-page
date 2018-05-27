@@ -1,6 +1,7 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 const glob = require('glob')
 
 const extractCSS = new ExtractTextPlugin({ filename: './build/static/css/extracted.bundle.css' })
@@ -25,6 +26,7 @@ module.exports = {
   },
   plugins: [
     new UglifyJsPlugin(),
-    extractCSS
+    extractCSS,
+    new Dotenv()
   ]
 }
