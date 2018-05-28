@@ -24,7 +24,7 @@ class ContributeForm extends Component {
       })
   }
 
-  // TODO: validatins on the email field
+  // TODO: validations on the email field
   render () {
     return (
       <div className="App">
