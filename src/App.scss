@@ -2,33 +2,32 @@
 // Note: Shopify doesn't support sass import statements so all styling should be provided in this one file
 // The code snippets for the production urls of image assets are commented out for reference
 
-.App {
+.contributeContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  background-color: #ddd;
-}
 
-.contributeForm {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background-color: white;
-}
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+  }
 
-.header {
-  padding: 20px;
-}
-
-.button {
-  margin: 20px;
-}
-
-.Card {
-  max-width: 500px;
-  min-width: 300px;
-  padding: 20px;
+  .header {
+    padding: 20px;
+  }
+  
+  .button {
+    margin: 20px;
+  }
+  
+  .card {
+    max-width: 500px;
+    min-width: 300px;
+    padding: 20px;
+  }
 }

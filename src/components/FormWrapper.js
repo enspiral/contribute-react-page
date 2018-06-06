@@ -8,7 +8,7 @@ import ContributeForm from './ContributeForm'
 class FormWrapper extends Component {
   render () {
     return (
-      <Elements>
+      <Elements className='contributeWrapper'>
         <ContributeForm />
       </Elements>
     )

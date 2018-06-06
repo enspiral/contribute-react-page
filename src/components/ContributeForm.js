@@ -9,7 +9,7 @@ class ContributeForm extends Component {
     this.state = {
       name: '',
       email: '',
-      amount: 0
+      amount: null
     }
   }
 
@@ -27,22 +27,12 @@ class ContributeForm extends Component {
   // TODO: validations on the email field
   render () {
     return (
-      <div className="App">
-        <span className='header'>Contribute to Enspiral!</span>
-        <form className='contributeForm' onSubmit={this.handleSubmit}>
-          <label>
-            Name:
-            <input type='text' className='button' value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
-          </label>
-          <label>
-            Email:
-            <input type='text' className='button' value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} />
-          </label>
-          <label>
-            Amount:
-            <input type='number' className='button' value={this.state.amount} onChange={(e) => this.setState({ amount: e.target.value })} />
-          </label>
-          <CardElement className='Card' />
+      <div className="contributeContainer">
+        <form className='form' onSubmit={this.handleSubmit}>
+          <input type='text' className='button' placeholder='Name' value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
+          <input type='text' className='button' placeholder='Email' value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} />
+          <input type='number' className='button' placeholder='Amount' value={this.state.amount} onChange={(e) => this.setState({ amount: e.target.value })} />
+          <CardElement className='card' />
           <input type='submit' className='button' value='CONTRIBUTE' />
         </form>
       </div>
