@@ -3,6 +3,10 @@ import { injectStripe, CardElement } from 'react-stripe-elements'
 
 import '../App.css'
 
+const cardStyle = {
+  'color': '#fff'
+}
+
 class ContributeForm extends Component {
   constructor() {
     super()
@@ -40,24 +44,18 @@ class ContributeForm extends Component {
               <div className="row">
                 <div className="field">
                   <label for="email">Email</label>
-                  <input id="email" className="input" type="text" placeholder="janedoe@gmail.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })}/>
+                  <input id="email" className="input" type="text" placeholder="youremail@email.com" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })}/>
                 </div>
-                <div className="field">
-                  <label for="phone">Phone</label>
-                  <input id="phone" className="input" type="text" placeholder="(02X)123-4567" required=""/>
                 </div>
-              </div>
                 <div className="row">
                   <div className="field">
-                    <label for="address">Address</label>
-                    <input id="address" className="input" type="text" placeholder="185 Berry St" required=""/>
                     <label for="amount">Amount</label>
                     <input id="amount" className="input" type="text" placeholder="$" value={this.state.amount} onChange={(e) => this.setState({ amount: e.target.value })}/>
                   </div>
                 </div>
                 <label for="card">Card</label>
                   <div id="card">
-                    <CardElement class='card'/>
+                    <CardElement style={{cardStyle}}/>
                   </div>
             <button type="submit" data-tid="">Pay</button>
           </form>
