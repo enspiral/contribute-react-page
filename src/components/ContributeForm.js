@@ -4,7 +4,12 @@ import { injectStripe, CardElement } from 'react-stripe-elements'
 import '../App.css'
 
 const cardStyle = {
-  'color': '#fff'
+  base:{
+  color: 'red',
+  '::placeholder': {
+    color: '#fff',
+  },
+  }
 }
 
 class ContributeForm extends Component {
@@ -54,8 +59,8 @@ class ContributeForm extends Component {
                   </div>
                 </div>
                 <label for="card">Card</label>
-                  <div id="card">
-                    <CardElement style={{cardStyle}}/>
+                  <div id="card" >
+                    <CardElement style={cardStyle}/>
                   </div>
             <button type="submit" data-tid="">Pay</button>
           </form>
