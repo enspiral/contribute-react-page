@@ -5,10 +5,10 @@ import '../App.css'
 
 const cardStyle = {
   base:{
-  color: 'red',
-  '::placeholder': {
-    color: '#fff',
-  },
+    '::placeholder': {
+      color: '#fff'
+    },
+    iconColor: "#fff"
   }
 }
 
