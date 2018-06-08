@@ -2,13 +2,19 @@
 // Note: Shopify doesn't support sass import statements so all styling should be provided in this one file
 // The code snippets for the production urls of image assets are commented out for reference
 
+$color-accent: #fff;
+$color-dark-accent: #eaebff;
+$color-background: #9169d8; 
+$color-medium-border: #a988ec;
+$color-light-border: #b5a4ed;
+
 .contributeContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-  background-color: #9169d8;
-  padding: 30px;
+  background-color: $color-background;
+  padding: 11px 30px 20px 30px;
   
   .form {
     display: flex;
@@ -23,25 +29,25 @@
     display: block;
     height: 40px;
     margin: 20px 0 0;
-    background-color: #fff;
+    background-color: $color-accent;
     border-radius: 6px;
-    color: #9169d8;
+    color: $color-background;
     font-weight: 500;
     font-size: 16px;
     cursor: pointer;
   }
 
   #card {
-    color: white;
+    color: $color-accent;
     padding: 10px 0 6px 0;
     border-style: none;
-    border-bottom: 1px solid #a988ec;
+    border-bottom: 1px solid $color-medium-border;
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
 
   fieldset {
     width:100%;
-    border: 1px solid #b5a4ed;
+    border: 1px solid $color-light-border;
     border-radius: 6px;
   }
 
@@ -51,7 +57,7 @@
     text-align: center;
     font-size: 15px;
     font-weight: 500;
-    color: #eaebff;
+    color: $color-dark-accent;
   }
 
   .card-only {
@@ -76,7 +82,7 @@
   label {
     width: 100%;
     text-align: left;
-    color: #eaebff;
+    color: $color-dark-accent;
     font-size: 13px;
     font-weight: 500;
     overflow: hidden;
@@ -86,21 +92,20 @@
 
   input {
     width: 100%;
-    color: #fff;
+    color: $color-accent;
     background: transparent;
     padding: 10px 0 6px 0;
     border-style: none;
-    border-bottom: 1px solid #a988ec;
+    border-bottom: 1px solid $color-medium-border;
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
 
   input::placeholder{
     font-weight: 100;
-    color:white;
+    color:$color-accent;
     font-size: 14px;
     opacity: 0.2;
   }
-
 }
 
 
