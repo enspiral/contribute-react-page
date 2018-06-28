@@ -14,11 +14,14 @@ $color-light-border: #b5a4ed;
   align-items: center;
   font-family: 'Roboto', sans-serif;
   background-color: $color-background;
-  padding: 11px 30px 20px 30px;
+  // these paddings are based on where the container the form is rendered into
+  padding: 20px 30px 10px 30px;
+  border-radius: 4px;
   
   .form {
     display: flex;
     flex-direction: column;
+    margin: 0;
   }
 
   .header {
@@ -65,9 +68,17 @@ $color-light-border: #b5a4ed;
   }
 
   .row {
-    display: -ms-flexbox;
     display: flex;
     margin: 0 0 10px;
+  }
+
+  .row.terms {
+    margin: 1em 0;
+    color: $color-accent;
+    p {
+      font-size: 12px;
+      margin: 0;
+    }
   }
 
   .field {
