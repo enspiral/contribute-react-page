@@ -111,6 +111,10 @@ $color-light-border: #b5a4ed;
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
 
+  input[type=text] {
+    color: white;
+  }
+
   input::placeholder{
     font-weight: 100;
     color:$color-accent;
