@@ -88,7 +88,7 @@ class ContributeForm extends Component {
             </div>
             <button type="submit" data-tid="">Contribute</button>
             <div className="row terms">
-              <p>By contributing funds to Enspiral you agree to <a href={config.terms}>these terms</a> :)</p>
+              <p>By contributing funds to Enspiral you agree to <a target="_blank" alt="Terms of Service" href={config.terms}>these terms</a> :)</p>
             </div>
           </form>
         </fieldset>
