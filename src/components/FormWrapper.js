@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Elements } from 'react-stripe-elements'
 
-import '../App.css'
+import '../styles/css/App.css'
 
 import ContributeForm from './ContributeForm'
 

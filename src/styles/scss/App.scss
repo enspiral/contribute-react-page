@@ -1,0 +1,105 @@
+.contributeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: #9169d8;
+  padding: 30px;
+}
+
+.contributeContainer .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contributeContainer .header {
+  padding: 20px;
+}
+
+.contributeContainer button {
+  display: block;
+  height: 40px;
+  margin: 20px 0 0;
+  background-color: #fff;
+  border-radius: 6px;
+  color: #9169d8;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contributeContainer #card {
+  color: white;
+  padding: 10px 0 6px 0;
+  border-style: none;
+  border-bottom: 1px solid #a988ec;
+  transition: border-color 0.3s 0.165, 0.84, 0.44, 1;
+}
+
+.contributeContainer fieldset {
+  width: 100%;
+  border: 1px solid #b5a4ed;
+  border-radius: 6px;
+}
+
+.contributeContainer legend {
+  margin: 0 auto;
+  padding: 0 10px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: #eaebff;
+}
+
+.contributeContainer .card-only {
+  display: block;
+}
+
+.contributeContainer .row {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 10px;
+}
+
+.contributeContainer .field {
+  position: relative;
+  width: 100%;
+}
+
+.contributeContainer .field+.field {
+  margin-left: 20px;
+}
+
+.contributeContainer label {
+  width: 100%;
+  text-align: left;
+  color: #eaebff;
+  font-size: 13px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contributeContainer input {
+  width: 100%;
+  color: #fff;
+  background: transparent;
+  padding: 10px 0 6px 0;
+  border-style: none;
+  border-bottom: 1px solid #a988ec;
+  transition: border-color 0.3s 0.165, 0.84, 0.44, 1;
+}
+
+.contributeContainer input::placeholder {
+  font-weight: 100;
+  color: white;
+  font-size: 14px;
+  opacity: 0.2;
+}
+
+
+ .sectionWrapper {
+   display: flex;
+   flex-direction: row;
+ }

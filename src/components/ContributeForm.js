@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { injectStripe, CardElement } from 'react-stripe-elements'
 
-import '../App.css'
 import { config } from '../config'
 
 const cardStyle = {
@@ -61,6 +60,11 @@ class ContributeForm extends Component {
   render () {
     return (
       <div className="contributeContainer">
+      {/* <div className='sectionWrapper'>
+        <div className='sectionButton'>Amount</div>
+        <div className='sectionButton'>Details</div>
+        <div className='sectionButton'>Payment</div>
+      </div> */}
       <fieldset>
         <legend className='card-only'>Pay with card</legend>
           <form id='contributeForm' className='form' onSubmit={this.handleSubmit}>
