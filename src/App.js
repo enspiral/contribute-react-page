@@ -3,7 +3,6 @@ import { StripeProvider } from 'react-stripe-elements'
 
 import { config } from './config.js'
 import FormWrapper from './components/FormWrapper'
-import './App.css'
 
 class App extends Component {
   render () {
