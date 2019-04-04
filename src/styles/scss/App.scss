@@ -1,105 +1,133 @@
+
+// Note: Shopify doesn't support sass import statements so all styling should be provided in this one file
+// The code snippets for the production urls of image assets are commented out for reference
+
+$color-accent: #fff;
+$color-dark-accent: #eaebff;
+$color-background: #9169d8; 
+$color-medium-border: #a988ec;
+$color-light-border: #b5a4ed;
+
 .contributeContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-  background-color: #9169d8;
-  padding: 30px;
+  background-color: $color-background;
+  // these paddings are based on where the container the form is rendered into
+  padding: 20px 30px 10px 30px;
+  border-radius: 4px;
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .header {
+    padding: 20px;
+  }
+  
+ 
+
+  button {
+    display: block;
+    height: 40px;
+    margin: 20px 0 0;
+    background-color: $color-accent;
+    border-radius: 6px;
+    color: $color-background;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  #card {
+    color: $color-accent;
+    padding: 10px 0 6px 0;
+    border-style: none;
+    border-bottom: 1px solid $color-medium-border;
+    transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
+  }
+
+  fieldset {
+    width:100%;
+    border: 1px solid $color-light-border;
+    border-radius: 6px;
+  }
+
+  legend {
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: $color-dark-accent;
+  }
+
+  .card-only {
+    display: block;
+  }
+
+  .row {
+    display: flex;
+    margin: 0 0 10px;
+  }
+
+  .row.terms {
+    margin: 1em 0;
+    color: $color-accent;
+    p {
+      font-size: 13px;
+      margin: 0;
+    }
+  }
+
+  .field {
+    position: relative;
+    width: 100%;
+  }
+
+  .field+.field {
+    margin-left: 20px;
+  }
+
+  label {
+    width: 100%;
+    text-align: left;
+    color: $color-dark-accent;
+    font-size: 15px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  input {
+    width: 100%;
+    color: $color-accent;
+    background: transparent;
+    padding: 10px 0 6px 0;
+    border-style: none;
+    border-bottom: 1px solid $color-medium-border;
+    transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
+  }
+
+  .terms {
+    color: white;
+  }
+
+  input[type=text], input[type=email], input[type=number], input[type=tel] {
+    font-size:  15px;
+    color: white;
+  }
+
+  input::placeholder{
+    font-weight: 100;
+    color:$color-accent;
+    font-size: 14px;
+    opacity: 0.2;
+  }
 }
 
-.contributeContainer .form {
-  display: flex;
-  flex-direction: column;
-}
 
-.contributeContainer .header {
-  padding: 20px;
-}
-
-.contributeContainer button {
-  display: block;
-  height: 40px;
-  margin: 20px 0 0;
-  background-color: #fff;
-  border-radius: 6px;
-  color: #9169d8;
-  font-weight: 500;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.contributeContainer #card {
-  color: white;
-  padding: 10px 0 6px 0;
-  border-style: none;
-  border-bottom: 1px solid #a988ec;
-  transition: border-color 0.3s 0.165, 0.84, 0.44, 1;
-}
-
-.contributeContainer fieldset {
-  width: 100%;
-  border: 1px solid #b5a4ed;
-  border-radius: 6px;
-}
-
-.contributeContainer legend {
-  margin: 0 auto;
-  padding: 0 10px;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 500;
-  color: #eaebff;
-}
-
-.contributeContainer .card-only {
-  display: block;
-}
-
-.contributeContainer .row {
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 0 10px;
-}
-
-.contributeContainer .field {
-  position: relative;
-  width: 100%;
-}
-
-.contributeContainer .field+.field {
-  margin-left: 20px;
-}
-
-.contributeContainer label {
-  width: 100%;
-  text-align: left;
-  color: #eaebff;
-  font-size: 13px;
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.contributeContainer input {
-  width: 100%;
-  color: #fff;
-  background: transparent;
-  padding: 10px 0 6px 0;
-  border-style: none;
-  border-bottom: 1px solid #a988ec;
-  transition: border-color 0.3s 0.165, 0.84, 0.44, 1;
-}
-
-.contributeContainer input::placeholder {
-  font-weight: 100;
-  color: white;
-  font-size: 14px;
-  opacity: 0.2;
-}
-
-
- .sectionWrapper {
-   display: flex;
-   flex-direction: row;
- }
