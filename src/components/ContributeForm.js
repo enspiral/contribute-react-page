@@ -34,7 +34,7 @@ class ContributeForm extends Component {
     this.state = {
       name: '',
       email: '',
-      amount: null
+      amount: ''
     }
   }
 
@@ -52,7 +52,7 @@ class ContributeForm extends Component {
         this.setState({
           name: '',
           email: '',
-          amount: null
+          amount: ''
         })
       })
       .catch(error => console.error('Error:', error))
@@ -88,7 +88,7 @@ class ContributeForm extends Component {
             <div className="row">
               <div className="field">
                 <label for="amount">Amount</label>
-                <input id="amount" className="input" type="number" placeholder="$NZD" value={this.state.amount / 100} onChange={(e) => this.setState({ amount: e.target.value * 100 })}/>
+                <input id="amount" className="input" type="number" placeholder="$NZD" value={this.state.amount == 0 ? '' : this.state.amount / 100} onChange={(e) => this.setState({ amount: e.target.value * 100 })}/>
               </div>
             </div>
             <label for="card">Card</label>
