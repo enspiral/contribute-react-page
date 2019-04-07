@@ -8,6 +8,18 @@ $color-background: #9169d8;
 $color-medium-border: #a988ec;
 $color-light-border: #b5a4ed;
 
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#root-contribute {
+  width: 400px;
+}
+
 .contributeContainer {
   display: flex;
   flex-direction: column;
@@ -28,7 +40,15 @@ $color-light-border: #b5a4ed;
     padding: 20px;
   }
   
- 
+ .sectionWrapper {
+   display: flex;
+   justify-content: space-evenly;
+ }
+
+ .paymentSteps {
+    border: 1px solid white;
+    padding: 10px;
+ }
 
   button {
     display: block;
