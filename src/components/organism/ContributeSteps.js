@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Amount from '../molecules/Amount.jsx'
 import Details from '../molecules/Details.jsx'
-import Payments from '../molecules/Payments.jsx'
+import Payment from '../molecules/Payment'
 
 class ContributeSteps extends Component {
   render () {
@@ -10,7 +10,7 @@ class ContributeSteps extends Component {
       <div>
         <Amount />
         <Details />
-        <Payments />
+        <Payment />
       </div>
     )
   }

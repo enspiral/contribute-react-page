@@ -5,16 +5,6 @@ import { injectStripe, CardElement } from 'react-stripe-elements'
 
 import ContributeSteps from './organism/ContributeSteps.js'
 
-const cardStyle = {
-  base:{
-    color: '#fff',
-    '::placeholder': {
-      color: '#fff'
-    },
-    iconColor: '#fff'
-  }
-}
-
 // const postCharge = (payload) => {
 //   console.log('Posting charge: ', payload.amount)
 //   return fetch(config.chargeProcessor, {
@@ -59,9 +49,6 @@ class ContributeForm extends Component {
       <div className="contributeContainer">
         <div className='formHeader'><p>Contributing AMOUNT to Ensprial</p></div>
         <ContributeSteps />
-        <div className='formFooter'>
-          <button>Next Step</button>
-        </div>
       </div>
     )
   }
