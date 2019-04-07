@@ -3,7 +3,7 @@ import { Elements } from 'react-stripe-elements'
 
 import '../styles/css/App.css'
 
-import ContributeForm from './ContributeForm'
+// import ContributeForm from './ContributeForm'
 import ContributeFormV2 from './ContributeFormV2'
 
 class FormWrapper extends Component {
