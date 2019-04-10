@@ -40,15 +40,46 @@ body {
     padding: 20px;
   }
   
- .sectionWrapper {
-   display: flex;
-   justify-content: space-evenly;
- }
+  .sectionWrapper {
+    display: flex;
+    justify-content: space-evenly;
+  }
 
- .paymentSteps {
+  .paymentSteps {
+      border: 1px solid white;
+      padding: 10px;
+  }
+
+  .stepsHeader {
+    display: flex;
+    flex: row;
+    border-bottom: 1px solid white;
+    justify-content: space-around;
+    p { 
+       margin: 0;
+       padding: 10px;
+    }
+  }
+
+  .amountSelection{
+    .selectionRow{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    }
+  }
+  .contribAmountBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    margin: 5px;
     border: 1px solid white;
-    padding: 10px;
- }
+    border-radius: 10px;
+  }
 
   button {
     display: block;
@@ -70,8 +101,12 @@ body {
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
 
+  .cardBody {
+    width: 100%;
+  }
+
   fieldset {
-    width:100%;
+    width: auto;
     border: 1px solid $color-light-border;
     border-radius: 6px;
   }
@@ -148,6 +183,7 @@ body {
     font-size: 14px;
     opacity: 0.2;
   }
+
 }
 
 

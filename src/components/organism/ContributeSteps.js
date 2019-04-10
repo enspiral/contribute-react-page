@@ -7,7 +7,7 @@ import Payment from '../molecules/Payment'
 class ContributeSteps extends Component {
   render () {
     return (
-      <div>
+      <div className='cardBody'>
         <Amount />
         <Details />
         <Payment />
