@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 import { config } from '../../config'
+import StepsHeader from '../atom/StepsHeader'
+
 
 const postCharge = (payload) => {
   console.log('Posting charge: ', payload.amount)
@@ -21,7 +23,8 @@ class Details extends Component {
   constructor() {
     super()
     this.state = {
-      name: '',
+      firstname: '',
+      lastname: '',
       email: '',
       amount: null
     }
@@ -52,39 +55,58 @@ class Details extends Component {
   render() {
     return (
       <fieldset>
-        <div className='row stepsHeader'>
-          <p>Amount</p>
-          <p>Details</p>
-          <p>Payment</p>
-        </div>
-        <form id='contributeForm' className='form'>
-        <div className="row">
-              <div className="field">
-                <label for="name">Name</label>
-                <input id="name" className="input" type="text" placeholder="Your Name" required value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })}/>
-              </div>
+        <StepsHeader stepTwo='boldStep'/>
+        <form id="contributeForm" className="form">
+          <div className="row">
+            <div className="field">
+              <label for="name">First name</label>
+              <input
+                id="name"
+                className="input"
+                type="text"
+                placeholder="Your first Name"
+                required
+                value={this.state.name}
+                onChange={e => this.setState({ firstname: e.target.value })}
+              />
             </div>
-            <div className="row">
-              <div className="field">
-                <label for="email">Email</label>
-                <input id="email" className="input" type="email" placeholder="youremail@email.com" required value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })}/>
-              </div>
+          </div>
+          <div className="row">
+            <div className="field">
+              <label for="name">Last name</label>
+              <input
+                id="name"
+                className="input"
+                type="text"
+                placeholder="Your last name"
+                required
+                value={this.state.name}
+                onChange={e => this.setState({ lastname: e.target.value })}
+              />
             </div>
-            <div className="row">
-              <div className="field">
-                <label for="amount">Amount</label>
-                <input id="amount" className="input" type="number" placeholder="$NZD" value={this.state.amount / 100} onChange={(e) => this.setState({ amount: e.target.value * 100 })}/>
-              </div>
+          </div>
+          <div className="row">
+            <div className="field">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                className="input"
+                type="email"
+                placeholder="youremail@email.com"
+                required
+                value={this.state.email}
+                onChange={e => this.setState({ email: e.target.value })}
+              />
             </div>
-          <div className='formFooter'>
-            <div className='row'>
-              <button>Edit Amount</button>
-              <button>Payment</button>
-            </div>
+          </div>
+
+          <div className="formFooter">
+            <button className='editBtn'>&larr; Edit Amount</button>
+            <button>Payment &rarr;</button>
           </div>
         </form>
       </fieldset>
-    )
+    );
   }
 }
 

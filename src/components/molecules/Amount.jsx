@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
 
+import StepsHeader from '../atom/StepsHeader'
+
 class Amount extends Component {
   render() {
     return (
       <fieldset>
-        <div className="stepsHeader">
-          <p>Amount</p>
-          <p>Details</p>
-          <p>Payment</p>
-        </div>
+        <StepsHeader stepOne='boldStep' />
         <form id="contributeForm" className="form">
           <div className="amountSelection">
             <div className="selectionRow">
-              <lable className="contribAmountBtn">$10</lable>
+              <lable className="contribAmountBtn">
+                $10
+                <input
+                  id="amount-10"
+                  type="radio"
+                  name="amount"
+                  value="10"
+                />
+              </lable>
               <lable className="contribAmountBtn">$20</lable>
               <lable className="contribAmountBtn">$50</lable>
             </div>
@@ -23,7 +29,7 @@ class Amount extends Component {
             </div>
           </div>
           <div className="formFooter">
-            <button>Details</button>
+            <button type="submit">Details &rarr;</button>
           </div>
         </form>
       </fieldset>
