@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { CardElement } from 'react-stripe-elements'
+import { injectStripe, CardElement } from 'react-stripe-elements'
 
 import { config } from '../../config'
 
@@ -46,4 +46,4 @@ class Payments extends Component {
   }
 }
 
-export default Payments
+export default injectStripe(Payments)
