@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
 import { config } from '../../config'
-import StepsHeader from '../atom/StepsHeader'
-
 
 const postCharge = (payload) => {
   console.log('Posting charge: ', payload.amount)
@@ -19,7 +17,7 @@ const postCharge = (payload) => {
     .catch(error => console.error('Error:', error))
 }
 
-class Details extends Component {
+class InsertDetails extends Component {
   constructor() {
     super()
     this.state = {
@@ -54,9 +52,7 @@ class Details extends Component {
   }
   render() {
     return (
-      <fieldset>
-        <StepsHeader stepTwo='boldStep'/>
-        <form id="contributeForm" className="form">
+      <div>
           <div className="row">
             <div className="field">
               <label for="name">First name</label>
@@ -99,15 +95,9 @@ class Details extends Component {
               />
             </div>
           </div>
-
-          <div className="formFooter">
-            <button className='editBtn'>&larr; Edit Amount</button>
-            <button>Payment &rarr;</button>
-          </div>
-        </form>
-      </fieldset>
+      </div>
     );
   }
 }
 
-export default Details
+export default InsertDetails
