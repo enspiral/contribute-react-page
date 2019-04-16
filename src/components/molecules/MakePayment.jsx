@@ -20,7 +20,7 @@ class Payments extends Component {
     return (
       <fieldset>
        <StepsHeader stepThree='boldStep'/>
-        <form id="contributeForm" className="form">
+        <form id='contributeForm' className='form' onSubmit={this.handleSubmit}>
           <div id="card">
           <p>Pay by credit card or debit card</p>
             <CardElement

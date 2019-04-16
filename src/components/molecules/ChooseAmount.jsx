@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Amount () {
+function ChooseAmount () {
     return (
         <div>
           <div className="amountSelection">
@@ -44,4 +44,4 @@ function Amount () {
     );
   }
 
-export default Amount
+export default ChooseAmount

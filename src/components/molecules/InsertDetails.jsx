@@ -1,22 +1,5 @@
 import React, { Component } from 'react'
 
-import { config } from '../../config'
-
-const postCharge = (payload) => {
-  console.log('Posting charge: ', payload.amount)
-  return fetch(config.chargeProcessor, {
-    body: JSON.stringify(payload),
-    headers: {
-      'content-type': 'application/json'
-    },
-    method: 'POST'
-  })
-    .then(response => {
-      console.log('Success: ', response)
-    })
-    .catch(error => console.error('Error:', error))
-}
-
 class InsertDetails extends Component {
   constructor() {
     super()
@@ -26,29 +9,6 @@ class InsertDetails extends Component {
       email: '',
       amount: null
     }
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault()
-    if (this.props.stripe) {
-      const name = this.state.name
-      this.props.stripe.createToken({ name })
-      .then((payload) => {
-        console.log('[token]', payload)
-        return postCharge(Object.assign(payload, this.state))
-      })
-      .then(response => { 
-        alert('Thank you for your contribution - we have sent you a confirmation email')
-        this.setState({
-          name: '',
-          email: '',
-          amount: null
-        })
-      })
-      .catch(error => console.error('Error:', error))
-      } else {
-        console.log("Stripe.js hasn't loaded yet.");
-      }
   }
   render() {
     return (
