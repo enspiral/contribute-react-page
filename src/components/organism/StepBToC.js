@@ -5,8 +5,7 @@ import { config } from '../../config'
 
 import StepsHeader from '../atom/StepsHeader'
 import InsertDetails from '../molecules/InsertDetails'
-// import MakePayment from '../molecules/MakePayment'
-// import StepAToB from './StepAToB'
+import StepAToB from './StepAToB'
 
 const cardStyle = {
   base: {
@@ -37,8 +36,11 @@ class StepBToC extends Component {
   constructor() {
     super()
     this.state = {
+      name: '',
+      email: '',
+      amount: null,
       isHidden: true,
-      // showAmount: false
+      showAmount: false
     }
   }
   showPreviousStep(e) {
@@ -80,8 +82,8 @@ class StepBToC extends Component {
   render () {
     return (
       <div className='cardBody'>
-         {this.state.isHidden && 
-         <fieldset id="insertDetails"> 
+        {/* {!this.state.isHidden && <StepAToB />} */}
+         {!this.state.isHideen && <fieldset id="insertDetails"> 
           <StepsHeader stepTwo='boldStep' />
           <form form id='contributeForm' className='form' onSubmit={this.handleSubmit}>
             <InsertDetails />
@@ -100,12 +102,12 @@ class StepBToC extends Component {
               </h5>
             </div>
             <div className="formFooter">
-              <button onClick={this.showPreviousStep.bind(this)} className='editBtn'>&larr; Edit Amount</button>
-              <button onClick={this.showNextStep.bind(this)}>Confirm Payment</button>
+              <button onClick={this.showNextStep.bind(this)} className='editBtn'>&larr; Edit Amount</button>
+              <button>Confirm Payment</button>
             </div>
           </form>
          </fieldset> 
-        }
+         }
       </div>
     )
   }

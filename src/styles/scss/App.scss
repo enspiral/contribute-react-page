@@ -3,9 +3,9 @@
 // The code snippets for the production urls of image assets are commented out for reference
 
 $color-accent:#9169d8;
-$color-dark-accent: #9169d8;
+$color-dark-accent: #331a5f;
 $color-background: #9169d8; 
-$color-medium-border: #a988ec;
+$color-medium-border: #9169d8;
 $color-light-border: #b5a4ed;
 
 body {
@@ -77,30 +77,42 @@ body {
     flex-flow: row wrap;
     justify-content: space-between;
     }
-  }
-  .selectContribAmount {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:black;
-    width: 80px;
-    height: 50px;
-    text-align: center;
-    margin: 5px;
-    border: 1px solid grey;
-    border-radius: 10px;
-    transition: color .15s ease-in-out,
-    background-color .15s ease-in-out,
-    border-color .15s ease-in-out,
-    box-shadow .15s ease-in-out
+    .selectionRow{
+      .selectContribAmount {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:black;
+        width: 80px;
+        height: 50px;
+        text-align: center;
+        margin: 5px;
+        border: 1px solid grey;
+        border-radius: 10px;
+        transition: color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out
+      }
+      .selectContribAmount:hover {
+        color: white;
+        background-color: black;
+        border-color: #343a40;
+      }
+      .selectContribAmount:focus {
+        color: white;
+        background-color: rgb(0, 138, 143);
+        border-color: #343a40;
+      }
+    }   
   }
 
-  .contribAmountBtn:hover {
-    color: #fff;
-    background-color: #138496;
-    border-color: #117a8b;
-  }
+  // .contribAmountBtn:hover {
+  //   color: #fff;
+  //   background-color: #138496;
+  //   border-color: #117a8b;
+  // }
 
   input[type=radio] {
     position: absolute;
@@ -116,6 +128,25 @@ body {
     // position: absolute;
     // bottom: 0;
     // width: 100%;
+  }
+
+  
+
+  .form-control {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 6px 12px;
+    padding: .375rem .75rem;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   }
 
   button {
@@ -171,6 +202,31 @@ body {
   .row {
     display: flex;
     margin: 0 0 10px;
+    
+  .customAmount {
+      text-align: right !important;
+      padding-top: calc(.375rem + 1px);
+      margin-bottom: 0;
+    }
+    .insertAmount {
+      // border: 1px solid black;
+      display: flex; 
+      justify-content: center;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 0;
+      font-size: inherit;
+      line-height: 1.5;
+    
+      .customInput {
+        padding: 5px;
+        background-color: #139675;
+      }
+      #customAmount {
+        width: 100px;
+        height: 20px;
+      }
+    }
   }
 
   .row.terms {

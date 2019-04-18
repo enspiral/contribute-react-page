@@ -21,12 +21,12 @@ class StepAToB extends Component {
     return (
       <div className='cardBody'>
          {this.state.isHidden && 
-         <fieldset id="chooseAmount"> 
+        <fieldset id="chooseAmount"> 
           <StepsHeader stepOne='boldStep' />
            <form id="contributeForm" className="form">
             <ChooseAmount />
             <div className="formFooter">
-              <button onClick={this.showNextStep.bind(this)}type="submit">Details &rarr;</button>
+              <button onClick={this.showNextStep.bind(this)} type="submit">Details &rarr;</button>
             </div>
             </form>
         </fieldset>}
