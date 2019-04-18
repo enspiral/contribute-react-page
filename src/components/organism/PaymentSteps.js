@@ -4,7 +4,7 @@ import merge from 'lodash/merge'
 
 import { config } from '../../config'
 
-import StepsHeader from '../atom/StepsHeader'
+import StepsHeader from '../molecules/StepsHeader'
 import ChooseAmount from '../molecules/ChooseAmount'
 import InsertDetails from '../molecules/InsertDetails'
 
@@ -34,55 +34,55 @@ const postCharge = payload => {
 }
 
 class PaymentSteps extends Component {
-  constructor () {
-    super()
-    this.state = {
-      name: '',
-      email: '',
-      amount: '',
-      step: 1
-    }
-    this.updateState = this.updateState.bind(this)
-  }
-  updateState (newState) {
-    this.setState(merge(this.state, newState))
-  }
+  // constructor () {
+  //   super()
+  //   this.state = {
+  //     name: '',
+  //     email: '',
+  //     amount: '',
+  //     step: 1
+  //   }
+  //   this.updateState = this.updateState.bind(this)
+  // }
+  // updateState (newState) {
+  //   this.setState(merge(this.state, newState))
+  // }
 
-  incrementStep (e) { 
-    this.updateState({
-      step: this.state.step + 1
-    })
-  }
-  decrementStep (e) {
-    this.updateState({
-      step: this.state.step - 1
-    })
-  }
+  // incrementStep (e) { 
+  //   this.updateState({
+  //     step: this.state.step + 1
+  //   })
+  // }
+  // decrementStep (e) {
+  //   this.updateState({
+  //     step: this.state.step - 1
+  //   })
+  // }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    if (this.props.stripe) {
-      const name = this.state.name
-      this.props.stripe.createToken({
-          name
-        })
-        .then((payload) => {
-          console.log('[token]', payload)
-          return postCharge(Object.assign(payload, this.state))
-        })
-        .then(response => {
-          alert('Thank you for your contribution - we have sent you a confirmation email')
-          this.setState({
-            name: '',
-            email: '',
-            amount: null
-          })
-        })
-        .catch(error => console.error('Error:', error))
-    } else {
-      console.log("Stripe.js hasn't loaded yet.");
-    }
-  }
+  // handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   if (this.props.stripe) {
+  //     const name = this.state.name
+  //     this.props.stripe.createToken({
+  //         name
+  //       })
+  //       .then((payload) => {
+  //         console.log('[token]', payload)
+  //         return postCharge(Object.assign(payload, this.state))
+  //       })
+  //       .then(response => {
+  //         alert('Thank you for your contribution - we have sent you a confirmation email')
+  //         this.updateState({
+  //           name: '',
+  //           email: '',
+  //           amount: null
+  //         })
+  //       })
+  //       .catch(error => console.error('Error:', error))
+  //   } else {
+  //     console.log("Stripe.js hasn't loaded yet.");
+  //   }
+  // }
   render () {
     return (
       <div className='cardBody'>
