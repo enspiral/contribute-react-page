@@ -4,8 +4,8 @@ import { injectStripe, CardElement } from 'react-stripe-elements'
 import { config } from '../../config'
 
 import StepsHeader from '../atom/StepsHeader'
+import ChooseAmount from '../molecules/ChooseAmount'
 import InsertDetails from '../molecules/InsertDetails'
-import StepAToB from './StepAToB'
 
 const cardStyle = {
   base: {
@@ -32,8 +32,8 @@ const postCharge = payload => {
     .catch(error => console.error('Error:', error))
 }
 
-class StepBToC extends Component {
-  constructor() {
+class PaymentSteps extends Component {
+  constructor () {
     super()
     this.state = {
       name: '',
@@ -43,47 +43,51 @@ class StepBToC extends Component {
       showAmount: false
     }
   }
-  showPreviousStep(e) {
-    e.preventDefault();
-    this.setState({
-      showAmount: !this.state.showAmount
-    })
-  }
-  showNextStep(e) {
+  showNextStep (e) {
     e.preventDefault();
     this.setState({
       isHidden: !this.state.isHidden
     })
   }
-
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.props.stripe) {
       const name = this.state.name
-      this.props.stripe.createToken({ name })
-      .then((payload) => {
-        console.log('[token]', payload)
-        return postCharge(Object.assign(payload, this.state))
-      })
-      .then(response => { 
-        alert('Thank you for your contribution - we have sent you a confirmation email')
-        this.setState({
-          name: '',
-          email: '',
-          amount: null
+      this.props.stripe.createToken({
+          name
         })
-      })
-      .catch(error => console.error('Error:', error))
-      } else {
-        console.log("Stripe.js hasn't loaded yet.");
-      }
+        .then((payload) => {
+          console.log('[token]', payload)
+          return postCharge(Object.assign(payload, this.state))
+        })
+        .then(response => {
+          alert('Thank you for your contribution - we have sent you a confirmation email')
+          this.setState({
+            name: '',
+            email: '',
+            amount: null
+          })
+        })
+        .catch(error => console.error('Error:', error))
+    } else {
+      console.log("Stripe.js hasn't loaded yet.");
+    }
   }
-
   render () {
     return (
       <div className='cardBody'>
-        {/* {!this.state.isHidden && <StepAToB />} */}
-         {!this.state.isHideen && <fieldset id="insertDetails"> 
+        {!this.state.isHidden && 
+        <fieldset id="chooseAmount"> 
+          <StepsHeader stepOne='boldStep' />
+           <form id="contributeForm" className="form">
+            <ChooseAmount />
+            <div className="formFooter">
+              <button onClick={this.showNextStep.bind(this)} type="submit">Details &rarr;</button>
+            </div>
+            </form>
+        </fieldset>
+        }
+        {!this.state.isHideen && <fieldset id="insertDetails"> 
           <StepsHeader stepTwo='boldStep' />
           <form form id='contributeForm' className='form' onSubmit={this.handleSubmit}>
             <InsertDetails />
@@ -107,10 +111,10 @@ class StepBToC extends Component {
             </div>
           </form>
          </fieldset> 
-         }
+        }
       </div>
     )
   }
 }
 
-export default injectStripe(StepBToC)
+export default injectStripe(PaymentSteps)

@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 
 // import { config } from '../config'
 
-import StepAToB from './organism/StepAToB'
+import PaymentSteps from './organism/PaymentSteps'
 
 class ContributeForm extends Component {
   render () {
     return (
       <div className="contributeContainer">
         <div className='formHeader'><p>Contributing AMOUNT to Ensprial</p></div>
-        <StepAToB />
+        <PaymentSteps />
       </div>
     )
   }
