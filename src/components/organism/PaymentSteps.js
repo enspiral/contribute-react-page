@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { injectStripe, CardElement } from 'react-stripe-elements'
+import merge from 'lodash/merge'
 
 import { config } from '../../config'
 
@@ -38,17 +39,26 @@ class PaymentSteps extends Component {
     this.state = {
       name: '',
       email: '',
-      amount: null,
-      isHidden: true,
-      showAmount: false
+      amount: '',
+      step: 1
     }
+    this.updateState = this.updateState.bind(this)
   }
-  showNextStep (e) {
-    e.preventDefault();
-    this.setState({
-      isHidden: !this.state.isHidden
+  updateState (newState) {
+    this.setState(merge(this.state, newState))
+  }
+
+  incrementStep (e) { 
+    this.updateState({
+      step: this.state.step + 1
     })
   }
+  decrementStep (e) {
+    this.updateState({
+      step: this.state.step - 1
+    })
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.props.stripe) {
@@ -76,22 +86,22 @@ class PaymentSteps extends Component {
   render () {
     return (
       <div className='cardBody'>
-        {!this.state.isHidden && 
+        {this.state.step === 1 && 
         <fieldset id="chooseAmount"> 
           <StepsHeader stepOne='boldStep' />
            <form id="contributeForm" className="form">
             <ChooseAmount />
             <div className="formFooter">
-              <button onClick={this.showNextStep.bind(this)} type="submit">Details &rarr;</button>
+              <button onClick={() => this.incrementStep()}type="submit">Details &rarr;</button>
             </div>
             </form>
         </fieldset>
         }
-        {!this.state.isHideen && <fieldset id="insertDetails"> 
+        {this.state.step === 2 && <fieldset id="insertDetails"> 
           <StepsHeader stepTwo='boldStep' />
           <form form id='contributeForm' className='form' onSubmit={this.handleSubmit}>
             <InsertDetails />
-            <div id="card">
+            <div id="creditCard">
               <p>Pay by credit card or debit card</p>
                 <CardElement style={cardStyle}
                 elementRef={c => (this._element = c)}
@@ -106,7 +116,7 @@ class PaymentSteps extends Component {
               </h5>
             </div>
             <div className="formFooter">
-              <button onClick={this.showNextStep.bind(this)} className='editBtn'>&larr; Edit Amount</button>
+              <button onClick={() => this.decrementStep()} className='editBtn'>&larr; Edit Amount</button>
               <button>Confirm Payment</button>
             </div>
           </form>
