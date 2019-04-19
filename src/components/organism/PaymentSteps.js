@@ -101,12 +101,7 @@ class PaymentSteps extends Component {
           <StepsHeader stepTwo='boldStep' />
           <form form id='contributeForm' className='form' onSubmit={this.handleSubmit}>
             <InsertDetails />
-            <div id="creditCard">
-              <p>Pay by credit card or debit card</p>
-                <CardElement style={cardStyle}
-                elementRef={c => (this._element = c)}
-              />
-            </div>
+            
             <div className="row terms">
               <h5>
                 By contributing funds to Enspiral you agree to{" "}

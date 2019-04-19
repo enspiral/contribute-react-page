@@ -2,36 +2,28 @@ import React, { Component } from 'react'
 import { injectStripe, CardElement } from 'react-stripe-elements'
 import merge from 'lodash/merge'
 
-import { config } from '../../config'
+// import { config } from '../../config'
 
 import StepsHeader from '../molecules/StepsHeader'
 import ContributeHeasder from '../molecules/ContributeHeader';
 import FormStepper from '../molecules/FormStepper';
 import FormFooter from '../molecules/FormFooter';
 
-const cardStyle = {
-  base: {
-    color: 'black',
-    '::placeholder': {
-      color: 'grey'
-    },
-    iconColor: 'black',
-  }
-}
+
 
 const postCharge = payload => {
   console.log('Posting charge: ', payload.amount)
-  return fetch(config.chargeProcessor, {
-    body: JSON.stringify(payload),
-    headers: {
-      'content-type': 'application/json'
-    },
-    method: 'POST'
-  })
-    .then(response => {
-      console.log('Success: ', response)
-    })
-    .catch(error => console.error('Error:', error))
+  // return fetch(config.chargeProcessor, {
+  //   body: JSON.stringify(payload),
+  //   headers: {
+  //     'content-type': 'application/json'
+  //   },
+  //   method: 'POST'
+  // })
+  //   .then(response => {
+  //     console.log('Success: ', response)
+  //   })
+  //   .catch(error => console.error('Error:', error))
 }
 
 class ContributeForm extends Component {
@@ -49,12 +41,12 @@ class ContributeForm extends Component {
     this.setState(merge(this.state, newState))
   }
 
-  incrementStep (e) { 
+  incrementStep () { 
     this.updateState({
       paymentStep: this.state.paymentStep + 1
     })
   }
-  decrementStep (e) {
+  decrementStep () {
     this.updateState({
       paymentStep: this.state.paymentStep - 1
     })
@@ -95,6 +87,7 @@ class ContributeForm extends Component {
               paymentStep={this.state.paymentStep} 
               stepOne={() => this.incrementStep()} 
               stepTwo={() => this.decrementStep()}
+              handleSubmit={this.handleSubmit}
             />
           </div>
       </div>
