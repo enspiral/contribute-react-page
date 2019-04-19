@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+import FirstName from "../atom/FirstName.jsx";
+import LastName from "../atom/LastName.jsx";
+import EmailAddress from "../atom/EmailAddress.jsx";
 import CreditCardInfo from "../molecules/CreditCardInfo.jsx";
 
 class InsertDetails extends Component {
@@ -10,59 +13,23 @@ class InsertDetails extends Component {
       lastname: '',
       email: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+  }
+  handleChange(e){
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
   render() {
     return (
       <div>
        <fieldset id="insertDetails"> 
-          <form 
-            form id='contributeForm' 
-            className='form' 
-            onSubmit={this.handleSubmit}>
-              <div className="row">
-                <div className="field">
-                  <label for="name">First name</label>
-                  <input
-                    id="name"
-                    className="input"
-                    type="text"
-                    placeholder="Your first Name"
-                    required
-                    value={this.state.name}
-                    onChange={e => this.setState({ firstname: e.target.value })}
-                  />
-                </div>
-              </div>
-              <div className="row">
-                <div className="field">
-                  <label for="name">Last name</label>
-                  <input
-                    id="name"
-                    className="input"
-                    type="text"
-                    placeholder="Your last name"
-                    required
-                    value={this.state.name}
-                    onChange={e => this.setState({ lastname: e.target.value })}
-                  />
-                </div>
-              </div>
-              <div className="row">
-                <div className="field">
-                  <label for="email">Email</label>
-                  <input
-                    id="email"
-                    className="input"
-                    type="email"
-                    placeholder="youremail@email.com"
-                    required
-                    value={this.state.email}
-                    onChange={e => this.setState({ email: e.target.value })}
-                  />
-                </div>
-              </div>
-            </form>
+          <form form id='contributeForm' className='form' onSubmit={this.handleSubmit}>
+              <FirstName firstname={this.state.firstname} onChange={this.handleChange}/>
+              <LastName lastname={this.state.lastname} onChange={this.handleChange}/>
+              <EmailAddress email={this.state.email} onChange={this.handleChange}/>
               <CreditCardInfo />
+            </form>
           </fieldset>
       </div>
     );

@@ -1,18 +1,19 @@
 import React from 'react'
 
 function FirstName (props) {
+  const { firstname, onChange } = props
   return (
     <div className="row">
                 <div className="field">
                   <label for="name">First name</label>
                   <input
-                    id="name"
+                    name="firstname"
                     className="input"
                     type="text"
-                    placeholder="Your first Name"
+                     placeholder="Your first name here"
                     required
-                    value={this.state.name}
-                    onChange={e => this.setState({ firstname: e.target.value })}
+                    value={firstname}
+                    onChange={onChange}
                   />
                 </div>
               </div>
