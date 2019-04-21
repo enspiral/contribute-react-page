@@ -23,7 +23,8 @@ class InsertDetails extends Component {
   render() {
     return (
       <div>
-       <fieldset id="insertDetails"> 
+       <fieldset> 
+          <legend>Please fill in your details below</legend>
           <form form id='contributeForm' className='form' onSubmit={this.handleSubmit}>
               <FirstName firstname={this.state.firstname} onChange={this.handleChange}/>
               <LastName lastname={this.state.lastname} onChange={this.handleChange}/>

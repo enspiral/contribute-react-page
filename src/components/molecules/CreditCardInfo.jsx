@@ -3,9 +3,10 @@ import { CardElement } from 'react-stripe-elements'
 
 const cardStyle = {
   base: {
+    borderBottom: '1px, solid, black',
     color: 'black',
     '::placeholder': {
-      color: 'grey'
+      color: 'white'
     },
     iconColor: 'black',
   }
@@ -13,11 +14,14 @@ const cardStyle = {
 
 class CreditCardInfo extends Component {
   render() {
-    return(
-      <div id="creditCard">
-        <p>Pay by credit card or debit card</p>
-        <CardElement style={cardStyle} elementRef={c => (this._element = c)} />
-      </div>
+    return (
+      <fieldset id="creditCard">
+          <legend>Pay by Credit card or Debit card</legend>
+          <CardElement
+            style={cardStyle}
+            elementRef={c => (this._element = c)}
+          />
+      </fieldset>
     );
   }
 }
