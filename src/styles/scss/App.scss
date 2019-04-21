@@ -98,7 +98,7 @@ body {
       .selectContribAmount:hover {
         color: white;
         background-color: black;
-        border-color: #343a40;
+        border-color: #6d90b3;
       }
       .selectContribAmount:focus {
         color: white;
@@ -175,17 +175,22 @@ body {
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
   #creditCard {
-    background-color:$color-light-border  ;
+    // background-color:$color-light-border  ;
     color: $color-accent;
     margin: 20px 0 6px 0;
-    padding: 20px;
     width: 300px;
-    height: 100px;
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
 
   .cardBody {
     width: 100%;
+  }
+
+  .cardDetailFields {
+    margin: 10px;
+    padding: 10px;
+    background-color:$color-light-border;
+    border-radius: 6px;  
   }
 
   fieldset {

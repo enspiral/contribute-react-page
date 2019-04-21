@@ -1,15 +1,40 @@
 import React, { Component }from 'react'
-import { CardElement } from 'react-stripe-elements'
+import { CardNumberElement, CardExpiryElement,CardCVCElement } from 'react-stripe-elements'
 
 const cardStyle = {
   base: {
-    borderBottom: '1px, solid, black',
-    color: 'black',
-    '::placeholder': {
-      color: 'white'
+    height: "80px",
+    color: "white",
+    fontSize: "16px",
+    // fontSmoothing: 'antialiased',
+
+    ":focus": {
+      color: "white",
     },
-    iconColor: 'black',
-  }
+
+    "::placeholder": {
+      color: "##6d90b300",
+    },
+
+    ":focus::placeholder": {
+      color: "#CFD7DF",
+    },
+  },
+  invalid: {
+    color: "#fff",
+    ":focus": {
+      color: "#FA755A",
+    },
+    "::placeholder": {
+      color: "#FFCCA5",
+    },
+  },
+};
+
+const cardClasses = {
+  focus: 'focus',
+  empty: 'empty',
+  invalid: 'invalid',
 }
 
 class CreditCardInfo extends Component {
@@ -17,10 +42,19 @@ class CreditCardInfo extends Component {
     return (
       <fieldset id="creditCard">
           <legend>Pay by Credit card or Debit card</legend>
-          <CardElement
+          <div className='cardDetailFields'>
+            <CardNumberElement style={cardStyle} classes={cardClasses}/>
+          </div>
+           <div className='cardDetailFields'>
+            <CardExpiryElement style={cardStyle} classes={cardClasses}/>
+          </div>
+          <div className='cardDetailFields'>
+          <CardCVCElement style={cardStyle} classes={cardClasses}/>
+          </div>
+          {/* <CardElement
             style={cardStyle}
             elementRef={c => (this._element = c)}
-          />
+          /> */}
       </fieldset>
     );
   }

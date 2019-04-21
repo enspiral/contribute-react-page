@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { injectStripe, CardElement } from 'react-stripe-elements'
+import { injectStripe} from 'react-stripe-elements'
 import merge from 'lodash/merge'
 
 // import { config } from '../../config'
