@@ -51,10 +51,6 @@ class CreditCardInfo extends Component {
           <div className='cardDetailFields'>
           <CardCVCElement style={cardStyle} classes={cardClasses}/>
           </div>
-          {/* <CardElement
-            style={cardStyle}
-            elementRef={c => (this._element = c)}
-          /> */}
       </fieldset>
     );
   }
