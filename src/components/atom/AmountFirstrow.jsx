@@ -1,17 +1,18 @@
 import React from 'react'
 
 function AmountFirstRow(props) {
-      const {defaultAmount, chooseAmount} = props
+      const {defaultAmount, updateAmount} = props
+      console.log(defaultAmount)
   return (
       <div className="selectionRow">
         <lable className="selectContribAmount">$10
               <input 
                   id="amount-10" 
                   type="radio" 
-                  name={defaultAmount} 
+                  name="amount" 
                   value="10" 
                   checked={defaultAmount === "10"}
-                  onChange={chooseAmount}
+                  onChange={updateAmount}
                   />
         </lable>
         <lable className="selectContribAmount">$20

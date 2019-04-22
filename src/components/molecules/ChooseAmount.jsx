@@ -5,13 +5,13 @@ import AmountSecondRow from '../atom/AmountSecondRow';
 import OtherAmount from '../atom/OtherAmount';
 
 function ChooseAmount (props) {
-  const {defaultAmount, chooseAmount} = props
+  const {defaultAmount, updateAmount} = props
     return (
         <div>
           <fieldset id='chooseAmount'>
             <form id="contributeForm" className="form">
               <div className="amountSelection">
-                <AmountFirstRow amount={defaultAmount} onChange={chooseAmount}/>
+                <AmountFirstRow defaultAmount={defaultAmount} updateAmount={updateAmount}/>
                 <AmountSecondRow />
               </div>
                 <OtherAmount />

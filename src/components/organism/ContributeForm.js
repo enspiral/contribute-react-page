@@ -91,7 +91,7 @@ class ContributeForm extends Component {
             <FormStepper 
               paymentStep={this.state.paymentStep}
               defaultAmount={this.state.amount}
-              chooseAmount={() => this.updateAmount()}
+              updateAmount={() => this.updateAmount()}
               />
             <FormFooter 
               paymentStep={this.state.paymentStep} 
