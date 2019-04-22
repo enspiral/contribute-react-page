@@ -40,7 +40,6 @@ class ContributeForm extends Component {
   updateState (newState) {
     this.setState(merge(this.state, newState))
   }
-
   incrementStep () { 
     this.updateState({
       paymentStep: this.state.paymentStep + 1
@@ -49,6 +48,11 @@ class ContributeForm extends Component {
   decrementStep () {
     this.updateState({
       paymentStep: this.state.paymentStep - 1
+    })
+  }
+  updateAmount (e) {
+    this.updateState({
+      amount: e.target.value
     })
   }
 
@@ -81,8 +85,14 @@ class ContributeForm extends Component {
         <div className="contributeContainer">
           <ContributeHeasder amount={this.state.amount} />
           <div className='formWrapper'>
-            <StepsHeader />
-            <FormStepper paymentStep={this.state.paymentStep}/>
+            <StepsHeader 
+              paymentStep={this.state.paymentStep} 
+              />
+            <FormStepper 
+              paymentStep={this.state.paymentStep}
+              defaultAmount={this.state.amount}
+              chooseAmount={() => this.updateAmount()}
+              />
             <FormFooter 
               paymentStep={this.state.paymentStep} 
               stepOne={() => this.incrementStep()} 
