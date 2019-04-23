@@ -30,7 +30,6 @@ function ChooseAmount (props) {
                 <div className="selectionRow">
                   <Amount 
                     amount={100}
-                    selected
                     handleChange={chooseAmount}
                   />
                   <Amount 
@@ -43,7 +42,9 @@ function ChooseAmount (props) {
                   />
                 </div>
                 <div className="selectionRow">
-                  <OtherAmount />
+                  <OtherAmount 
+                    
+                    handleChange={chooseAmount}/>
                 </div>
               </div>
             </form>
