@@ -1,5 +1,5 @@
 {
-  "name": "contribute-page-v2",
+  "name": "contribute-react-page",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,8 +16,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sass": "sass --watch src/styles/scss:src/styles/css",
-    "sass:watch": "ode_modules/.bin/node-sass -w src/styles/scss -o src/styles/css",
-    "sass:build": "ode_modules/.bin/node-sass src/styles/scss -o src/styles/css --source-map true",
+    "sass:watch": "node_modules/.bin/node-sass -w src/styles/scss -o src/styles/css",
+    "sass:build": "node_modules/.bin/node-sass src/styles/scss -o src/styles/css --source-map true",
     "lint": "node_modules/.bin/standard src/**/*.js",
     "lint:fix": "node_modules/.bin/standard src/**/*.js --fix"
   },
