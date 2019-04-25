@@ -4,7 +4,7 @@ function ContributeHeader (props) {
   const {amount} = props
   return (
     <div className='formHeader'>
-      <p>Contributing <b>{amount}</b> to Ensprial</p>
+      <p>Contributing $<b>{amount}</b> to Ensprial</p>
     </div>
   )
 }

@@ -36,9 +36,10 @@ class ContributeForm extends Component {
       paymentStep: 1
     }
     this.updateState = this.updateState.bind(this)
+    this.updateAmount = this.updateAmount.bind(this)
   }
   updateState (newState) {
-    this.setState(merge(this.state, newState))
+    this.setState(newState)
   }
   incrementStep () { 
     this.updateState({
@@ -90,8 +91,8 @@ class ContributeForm extends Component {
               />
             <FormStepper 
               paymentStep={this.state.paymentStep}
-              defaultAmount={this.state.amount}
-              updateAmount={() => this.updateAmount()}
+              amount={this.state.amount}
+              chooseAmount={this.updateAmount}
               />
             <FormFooter 
               paymentStep={this.state.paymentStep} 
