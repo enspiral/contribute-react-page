@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { injectStripe} from 'react-stripe-elements'
-import merge from 'lodash/merge'
 
 // import { config } from '../../config'
 
 import StepsHeader from '../molecules/StepsHeader'
-import ContributeHeasder from '../molecules/ContributeHeader';
+import ContributeHeader from '../molecules/ContributeHeader';
 import FormStepper from '../molecules/FormStepper';
 import FormFooter from '../molecules/FormFooter';
 
@@ -84,7 +83,7 @@ class ContributeForm extends Component {
   render () {
     return (
         <div className="contributeContainer">
-          <ContributeHeasder amount={this.state.amount} />
+          <ContributeHeader amount={this.state.amount} />
           <div className='formWrapper'>
             <StepsHeader 
               paymentStep={this.state.paymentStep} 

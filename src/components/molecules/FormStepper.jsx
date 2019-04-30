@@ -4,10 +4,10 @@ import ChooseAmount from './ChooseAmount'
 import InsertDetails from './InsertDetails'
 
 function FormStepper(props) {
-  const { paymentStep, chooseAmount } = props
+  const { paymentStep, ...otherProps } = props
   return (
     <div className="">
-      {paymentStep === 1 && <ChooseAmount chooseAmount={chooseAmount} />}
+      {paymentStep === 1 && <ChooseAmount {...otherProps} />}
       {paymentStep === 2 && <InsertDetails />}
     </div>
   )
