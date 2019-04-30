@@ -7,7 +7,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^3.0.0",
     "react-stripe-elements": "^2.0.3"
   },
   "scripts": {
@@ -31,7 +31,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "standard": "^12.0.1"
   }
 }
