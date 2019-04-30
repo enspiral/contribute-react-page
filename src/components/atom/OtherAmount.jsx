@@ -1,7 +1,7 @@
 import React from 'react'
 
 function OtherAmount(props) {
-  const {amount, handleChange} = props
+  const {customAmount, handleChange} = props
   return (
     <div className='otherAmount'>
       <div className="customAmount">
@@ -17,7 +17,7 @@ function OtherAmount(props) {
           min="0" 
           step="1" 
           className="form-control" 
-          value={amount} 
+          value={customAmount} 
           onChange={handleChange}
           />
       </div>

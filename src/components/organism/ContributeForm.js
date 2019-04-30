@@ -32,6 +32,7 @@ class ContributeForm extends Component {
       name: '',
       email: '',
       amount: 'Selected Amount',
+      otherAmount:'',
       paymentStep: 1
     }
     this.updateState = this.updateState.bind(this)
