@@ -1,11 +1,11 @@
 import React from 'react'
 
 function OtherAmount(props) {
-  const {customAmount, handleChange} = props
+  const {amount, handleChange} = props
   return (
     <div className='otherAmount'>
       <div className="customAmount">
-        <label>Other amount</label>
+        <label for="customAmount">Other amount</label>
       </div>
       <div className="insertAmount">
         <span>$</span>{}
@@ -17,7 +17,7 @@ function OtherAmount(props) {
           min="0" 
           step="1" 
           className="form-control" 
-          value={customAmount} 
+          value={amount} 
           onChange={handleChange}
           />
       </div>
