@@ -4,7 +4,7 @@ import Amount from '../atom/Amount'
 import OtherAmount from '../atom/OtherAmount';
 
 function ChooseAmount (props) {
-  const { chooseAmount} = props
+  const {chooseAmount} = props
     return (
       <fieldset id='chooseAmount'>
         <form id="contributeForm" className="form">
@@ -37,7 +37,8 @@ function ChooseAmount (props) {
             />
           </div>
           <div className="selectionRow">
-            <OtherAmount
+            <OtherAmount 
+              amount={null}
               handleChange={chooseAmount}/>
           </div>
         </form>
