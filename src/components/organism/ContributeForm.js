@@ -31,12 +31,12 @@ class ContributeForm extends Component {
     this.state = {
       name: '',
       email: '',
-      amount: 'Selected Amount',
-      otherAmount:'',
+      amount: '',
       paymentStep: 1
     }
     this.updateState = this.updateState.bind(this)
     this.updateAmount = this.updateAmount.bind(this)
+    // this.toggleChecked = this.toggleChecked.bind(this)
   }
   updateState (newState) {
     this.setState(newState)
@@ -56,7 +56,6 @@ class ContributeForm extends Component {
       amount: e.target.value
     })
   }
-
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.props.stripe) {
@@ -93,6 +92,7 @@ class ContributeForm extends Component {
               paymentStep={this.state.paymentStep}
               amount={this.state.amount}
               chooseAmount={this.updateAmount}
+
               />
             <FormFooter 
               paymentStep={this.state.paymentStep} 
