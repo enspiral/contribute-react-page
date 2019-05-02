@@ -4,40 +4,46 @@ import Amount from '../atom/Amount'
 import OtherAmount from '../atom/OtherAmount';
 
 function ChooseAmount (props) {
-  const { chooseAmount} = props
+  const {amount, chooseAmount} = props
     return (
       <fieldset id='chooseAmount'>
         <form id="contributeForm" className="form">
           <div className="selectionRow">
             <Amount 
-              amount={10}
+              value={10}
+              amount={amount}
               handleChange={chooseAmount}
             />
             <Amount 
-              amount={20}
+              value={20}
+              amount={amount}
               handleChange={chooseAmount}
             />
             <Amount 
-              amount={50}
+              value={50}
+              amount={amount}
               handleChange={chooseAmount}
             />
           </div>
           <div className="selectionRow">
             <Amount 
-              amount={100}
+              value={100}
+              amount={amount}
               handleChange={chooseAmount}
             />
             <Amount 
-              amount={250}
+              value={250}
+              amount={amount}
               handleChange={chooseAmount}
             />
             <Amount 
-              amount={500}
+              value={500}
+              amount={amount}
               handleChange={chooseAmount}
             />
           </div>
           <div className="selectionRow">
-            <OtherAmount
+            <OtherAmount value={null}
               handleChange={chooseAmount}/>
           </div>
         </form>
