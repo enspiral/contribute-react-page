@@ -2,6 +2,7 @@ import React from 'react'
 
 function FormFooter(props) {
   const {paymentStep, stepOne, stepTwo, handleSubmit} = props
+  // console.log(handleSubmit)
   return (
     <div>
       {paymentStep === 1 && <div className="formFooter">
