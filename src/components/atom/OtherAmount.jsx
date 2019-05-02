@@ -8,15 +8,15 @@ function OtherAmount(props) {
         <label>Other amount</label>
       </div>
       <div className="insertAmount">
-        <span>$</span>{}
+        <p>$</p>
         <input 
+          placeholder="NZD"
           name="customAmount" 
           id="customAmount" 
           data-testid="custom-amount-input" 
           type="number" 
           min="0" 
-          step="1" 
-          className="form-control" 
+          step="1"  
           value={customAmount} 
           onChange={handleChange}
           />
