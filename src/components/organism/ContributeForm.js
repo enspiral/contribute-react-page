@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { injectStripe} from 'react-stripe-elements'
 
-// import { config } from '../../config'
+import { config } from '../../config'
 
 import StepsHeader from '../molecules/StepsHeader'
 import ContributeHeader from '../molecules/ContributeHeader';
@@ -12,17 +12,17 @@ import FormFooter from '../molecules/FormFooter';
 
 const postCharge = payload => {
   console.log('Posting charge: ', payload.amount)
-  // return fetch(config.chargeProcessor, {
-  //   body: JSON.stringify(payload),
-  //   headers: {
-  //     'content-type': 'application/json'
-  //   },
-  //   method: 'POST'
-  // })
-  //   .then(response => {
-  //     console.log('Success: ', response)
-  //   })
-  //   .catch(error => console.error('Error:', error))
+  return fetch(config.chargeProcessor, {
+    body: JSON.stringify(payload),
+    headers: {
+      'content-type': 'application/json'
+    },
+    method: 'POST'
+  })
+    .then(response => {
+      console.log('Success: ', response)
+    })
+    .catch(error => console.error('Error:', error))
 }
 
 class ContributeForm extends Component {
@@ -36,7 +36,7 @@ class ContributeForm extends Component {
     }
     this.updateState = this.updateState.bind(this)
     this.updateAmount = this.updateAmount.bind(this)
-    // this.toggleChecked = this.toggleChecked.bind(this)
+    this.submitToStripe = this.submitToStripe.bind(this)
   }
   updateState (newState) {
     this.setState(newState)
@@ -56,7 +56,8 @@ class ContributeForm extends Component {
       amount: e.target.value
     })
   }
-  handleSubmit = (e) => {
+  submitToStripe (e) {
+    console.log(e)
     e.preventDefault()
     if (this.props.stripe) {
       const name = this.state.name
@@ -98,7 +99,7 @@ class ContributeForm extends Component {
               paymentStep={this.state.paymentStep} 
               stepOne={() => this.incrementStep()} 
               stepTwo={() => this.decrementStep()}
-              handleSubmit={this.handleSubmit}
+              handleSubmit={this.submitToStripe}
             />
           </div>
       </div>
