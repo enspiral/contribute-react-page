@@ -61,10 +61,12 @@ body {
     justify-content: space-around;
     font-size: 15px;
     width: auto;
+
     p { 
        margin: 0;
        padding: 10px;
     }
+    
     .boldStep {
       font-weight: bold;
       color: black;
@@ -76,40 +78,41 @@ body {
      flex-flow: row wrap;
      justify-content: space-between;
    }
-     .selectContribAmount {
-       cursor: pointer;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       color: black;
-       width: 80px;
-       height: 50px;
-       text-align: center;
-       margin: 5px;
-       border-radius: 10px;
-       transition: color .15s ease-in-out,
-         background-color .15s ease-in-out,
-         border-color .15s ease-in-out,
-         box-shadow .15s ease-in-out;
-        border: 1px solid grey;
-     &:hover {
-       color: white;
-       background-color: black;
-       border-color: #6d90b3;
-     }
 
-     &:active{
-       color: white;
-       background-color: rgb(0, 138, 143);
-       border-color: #343a40;
-     }
-     &:focus-within{
-       color: white;
-       background-color: rgb(5, 102, 105);
-     }
-    }
+  .selectContribAmount {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    margin: 5px;
+    border-radius: 10px;
+    transition: color .15s ease-in-out,
+      background-color .15s ease-in-out,
+      border-color .15s ease-in-out,
+      box-shadow .15s ease-in-out;
+    border: 1px solid grey;
+
+      &:hover {
+        color: white;
+        background-color: black;
+        border-color: #6d90b3;
+      }
+
+      &:active{
+        color: white;
+        background-color: rgb(0, 138, 143);
+        border-color: #343a40;
+      }
+      &:focus-within{
+        color: white;
+        background-color: rgb(5, 102, 105);
+      }
+  }
     
-  
   .otherAmount {
     display: flex;
     flex-direction: row;
@@ -135,36 +138,11 @@ body {
     }
   }
 
-  input[type=radio] {
-    position: absolute;
-    clip: rect(0, 0, 0, 0);
-    pointer-events: none;
-  }
-
   .formFooter {
     display: flex;
     margin-top: 50px;
     padding-bottom: 10px; 
     justify-content: space-between;
-  }
-
-  
-
-  .form-control {
-    display: block;
-    width: 100%;
-    height: calc(2.25rem + 2px);
-    padding: 6px 12px;
-    padding: .375rem .75rem;
-    font-size: 16px;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   }
 
   button {
@@ -276,19 +254,25 @@ body {
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
 
-  .terms {
-    color: white;
-  }
-
   input[type=text], input[type=email], input[type=number], input[type=tel] {
     font-size:  15px;
     color: rgb(110, 110, 110);
   }
 
+  input[type=radio] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+  }
+
   input::placeholder{
     font-weight: 100;
-    color:$color-accent;
+    color:white;
     font-size: 14px;
-    opacity: 0.2;
+    opacity: 0.3;
+  }
+  
+  .terms {
+    color: white;
   }
 }
