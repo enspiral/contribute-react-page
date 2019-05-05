@@ -8,7 +8,7 @@ function FormStepper(props) {
   return (
     <div className="">
       {paymentStep === 1 && <ChooseAmount {...otherProps} />}
-      {paymentStep === 2 && <InsertDetails />}
+      {paymentStep === 2 && <InsertDetails {...otherProps} />}
     </div>
   )
 }
