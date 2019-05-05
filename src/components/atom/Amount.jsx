@@ -1,26 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function Amount(props) {
-  const {amount, handleChange} = props
+  const {amount, value, handleChange} = props
+  const intAmount = Number.parseInt(amount)
   return (
-    <label className="selectContribAmount">${amount}
+    <label className="selectContribAmount">${value}
       <input 
-        id={"amount-" + amount} 
+        id={"amount-" + value} 
         type="radio" 
-        name={"amount-" + amount}
-        value={amount}
-        checked={amount === "value"}
+        name={"amount-" + value}
+        value={value}
+        checked={value === intAmount}
         onChange={handleChange}
         />
     </label>
   )
-}
-
-Amount.propTypes = {
-  amount: PropTypes.number,
-  selected: PropTypes.bool,
-  handleChange: PropTypes.func
 }
 
 export default Amount
