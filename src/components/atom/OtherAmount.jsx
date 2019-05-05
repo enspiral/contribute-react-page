@@ -1,23 +1,23 @@
 import React from 'react'
 
 function OtherAmount(props) {
-  const {amount, handleChange} = props
+  const {value, handleChange} = props
   return (
     <div className='otherAmount'>
       <div className="customAmount">
         <label for="customAmount">Other amount</label>
       </div>
       <div className="insertAmount">
-        <span>$</span>{}
+        <p>$</p>
         <input 
+          placeholder="NZD"
           name="customAmount" 
           id="customAmount" 
           data-testid="custom-amount-input" 
           type="number" 
           min="0" 
-          step="1" 
-          className="form-control" 
-          value={amount} 
+          step="1"  
+          value={value} 
           onChange={handleChange}
           />
       </div>
