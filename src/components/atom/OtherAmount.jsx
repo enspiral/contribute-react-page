@@ -12,6 +12,7 @@ function OtherAmount(props) {
         <input 
           placeholder="NZD"
           name="customAmount" 
+          id="customAmount"
           data-testid="custom-amount-input" 
           type="number" 
           min="0" 
