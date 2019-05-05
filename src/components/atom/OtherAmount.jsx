@@ -5,14 +5,13 @@ function OtherAmount(props) {
   return (
     <div className='otherAmount'>
       <div className="customAmount">
-        <label for="customAmount">Other amount</label>
+        <label>Other amount</label>
       </div>
       <div className="insertAmount">
         <p>$</p>
         <input 
           placeholder="NZD"
           name="customAmount" 
-          id="customAmount" 
           data-testid="custom-amount-input" 
           type="number" 
           min="0" 

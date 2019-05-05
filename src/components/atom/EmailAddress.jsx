@@ -5,7 +5,7 @@ function EmailAddress(props) {
   return (
     <div className="row">
       <div className="field">
-        <label for="email">Email</label>
+        <label>Email</label>
         <input
           name="email"
           className="input"

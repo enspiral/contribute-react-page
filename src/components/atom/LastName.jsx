@@ -5,7 +5,7 @@ function LastName (props) {
   return (
     <div className="row">
       <div className="field">
-        <label for="name">Last name</label>
+        <label>Last name</label>
         <input
           name="lastname"
           className="input"
