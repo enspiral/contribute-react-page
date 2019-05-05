@@ -43,7 +43,7 @@ function ChooseAmount (props) {
             />
           </div>
           <div className="selectionRow">
-            <OtherAmount value={null}
+            <OtherAmount value={undefined}
               handleChange={chooseAmount}/>
           </div>
         </form>
