@@ -3,10 +3,9 @@ import { CardNumberElement, CardExpiryElement,CardCVCElement } from 'react-strip
 
 const cardStyle = {
   base: {
-    height: "80px",
     color: "white",
     fontSize: "16px",
-    // fontSmoothing: 'antialiased',
+    fontSmoothing: 'antialiased',
 
     ":focus": {
       color: "white",
