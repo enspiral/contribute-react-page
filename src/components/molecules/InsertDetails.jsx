@@ -6,18 +6,13 @@ import EmailAddress from "../atom/EmailAddress.jsx";
 import CreditCardInfo from "../molecules/CreditCardInfo.jsx";
 
 function InsertDetails (props) {
-  const {firstname, lastname, email, updateDetails, submitToStripe} = props
+  const {firstname, lastname, email, updateDetails} = props
     return (
       <div>
-       <fieldset> 
-          <legend>Please fill in your details below</legend>
-          <form form id='contributeForm' className='form' onSubmit={submitToStripe}>
-              <FirstName firstname={firstname} onChange={updateDetails}/>
-              <LastName lastname={lastname} onChange={updateDetails}/>
-              <EmailAddress email={email} onChange={updateDetails}/>
-              <CreditCardInfo />
-            </form>
-          </fieldset>
+          <FirstName firstname={firstname} onChange={updateDetails}/>
+          <LastName lastname={lastname} onChange={updateDetails}/>
+          <EmailAddress email={email} onChange={updateDetails}/>
+          <CreditCardInfo />
       </div>
     );
   }
