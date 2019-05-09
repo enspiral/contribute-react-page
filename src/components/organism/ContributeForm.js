@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { injectStripe} from 'react-stripe-elements'
+import { injectStripe } from 'react-stripe-elements'
 
-// import { config } from '../../config'
+import { config } from '../../config'
 
 import StepsHeader from '../molecules/StepsHeader'
 import ContributeHeader from '../molecules/ContributeHeader';
@@ -12,31 +12,33 @@ import FormFooter from '../molecules/FormFooter';
 
 const postCharge = payload => {
   console.log('Posting charge: ', payload.amount)
-  // return fetch(config.chargeProcessor, {
-  //   body: JSON.stringify(payload),
-  //   headers: {
-  //     'content-type': 'application/json'
-  //   },
-  //   method: 'POST'
-  // })
-  //   .then(response => {
-  //     console.log('Success: ', response)
-  //   })
-  //   .catch(error => console.error('Error:', error))
+  return fetch(config.chargeProcessor, {
+    body: JSON.stringify(payload),
+    headers: {
+      'content-type': 'application/json'
+    },
+    method: 'POST'
+  })
+    .then(response => {
+      console.log('Success: ', response)
+    })
+    .catch(error => console.error('Error:', error))
 }
 
 class ContributeForm extends Component {
   constructor () {
     super()
     this.state = {
-      name: '',
+      firstname: '',
+      lastname: '',
       email: '',
-      amount: 'Selected Amount',
-      otherAmount:'',
+      amount: '',
       paymentStep: 1
     }
     this.updateState = this.updateState.bind(this)
     this.updateAmount = this.updateAmount.bind(this)
+    this.updateDetails = this.updateDetails.bind(this)
+    this.submitToStripe = this.submitToStripe.bind(this)
   }
   updateState (newState) {
     this.setState(newState)
@@ -56,9 +58,15 @@ class ContributeForm extends Component {
       amount: e.target.value
     })
   }
-
-  handleSubmit = (e) => {
+  updateDetails (e) {
+    this.updateState({
+      [e.target.name]: e.target.value
+    })
+  }
+  submitToStripe (e) {
     e.preventDefault()
+    // const ContribAmountTotal = Number.parseInt(this.state.amount)
+    // console.log(ContribAmountTotal)
     if (this.props.stripe) {
       const name = this.state.name
       this.props.stripe.createToken({
@@ -71,7 +79,8 @@ class ContributeForm extends Component {
         .then(response => {
           alert('Thank you for your contribution - we have sent you a confirmation email')
           this.updateState({
-            name: '',
+            firstname: '',
+            lastname: '',
             email: '',
             amount: ''
           })
@@ -89,17 +98,27 @@ class ContributeForm extends Component {
             <StepsHeader 
               paymentStep={this.state.paymentStep} 
               />
-            <FormStepper 
-              paymentStep={this.state.paymentStep}
-              amount={this.state.amount}
-              chooseAmount={this.updateAmount}
+            <fieldset> 
+            {/* <legend>Please fill in your details below</legend> */}
+             <form id='contributeForm' className='form' onSubmit={this.submitToStripe}>
+              <FormStepper 
+                paymentStep={this.state.paymentStep}
+                amount={this.state.amount}
+                firstname={this.state.firstname}
+                lastname={this.state.lastname}
+                email={this.state.email}
+                chooseAmount={this.updateAmount}
+                updateDetails={this.updateDetails}
+                submitToStripe={this.submitToStripe}
+                />
+              <FormFooter 
+                paymentStep={this.state.paymentStep} 
+                stepOne={() => this.incrementStep()} 
+                stepTwo={() => this.decrementStep()}
+                // handleSubmit={this.submitToStripe}
               />
-            <FormFooter 
-              paymentStep={this.state.paymentStep} 
-              stepOne={() => this.incrementStep()} 
-              stepTwo={() => this.decrementStep()}
-              handleSubmit={this.handleSubmit}
-            />
+            </form>
+          </fieldset>
           </div>
       </div>
     )
