@@ -55,7 +55,7 @@ class ContributeForm extends Component {
   }
   updateAmount (e) {
     this.updateState({
-      amount: e.target.value
+      amount: e.target.value * 100
     })
   }
   updateDetails (e) {
