@@ -22,7 +22,13 @@ const postCharge = payload => {
     method: 'POST'
   })
     .then(response => {
-      console.log('Success: ', response)
+      if (response.status === 500) {
+        console.log('ERROR: ', response)
+      } else if (response.status === 204) {
+        console.log('SUCCESS: ', response)
+      } else {
+        console.log('RESPONSE: ', response)
+      }
     })
     .catch(error => console.error('Error:', error))
 }
