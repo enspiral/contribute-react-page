@@ -2,6 +2,7 @@ import React from 'react'
 
 function OtherAmount(props) {
   const {value, handleChange} = props
+  const intValue = value == 0 ? '' : value / 100
   return (
     <div className='otherAmount'>
       <div className="customAmount">
@@ -17,7 +18,7 @@ function OtherAmount(props) {
           type="number" 
           min="0" 
           step="1"  
-          value={value} 
+          value={intValue} 
           onChange={handleChange}
           />
       </div>
