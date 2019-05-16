@@ -42,7 +42,7 @@ function ChooseAmount (props) {
             />
           </div>
           <div className="selectionRow">
-            <OtherAmount value={undefined}
+            <OtherAmount value={amount}
               handleChange={chooseAmount}/>
           </div>
         </div>
