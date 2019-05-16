@@ -158,6 +158,12 @@ body {
     cursor: pointer;
   }
 
+  button:disabled {
+    background-color: lightgrey;
+    color: white;
+    cursor: no-drop;
+  }
+
   .editBtn {
     background-color: white;
     color: black;
