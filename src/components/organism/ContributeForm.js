@@ -8,11 +8,14 @@ import ContributeHeader from '../molecules/ContributeHeader';
 import FormStepper from '../molecules/FormStepper';
 import FormFooter from '../molecules/FormFooter';
 
-
+// to-do: update with test charge processor url
+const chargeProcessor = process.env.NODE_ENV === 'development'
+        ? config.chargeProcessor : config.chargeProcessor
 
 const postCharge = payload => {
+  console.log(payload)
   console.log('Posting charge: ', payload.amount)
-  return fetch(config.chargeProcessor, {
+  return fetch(chargeProcessor, {
     body: JSON.stringify(payload),
     headers: {
       'content-type': 'application/json'
@@ -33,12 +36,14 @@ class ContributeForm extends Component {
       lastname: '',
       email: '',
       amount: '',
-      paymentStep: 1
+      paymentStep: 1,
+      isBtnDisabled: false
     }
     this.updateState = this.updateState.bind(this)
     this.updateAmount = this.updateAmount.bind(this)
     this.updateDetails = this.updateDetails.bind(this)
     this.submitToStripe = this.submitToStripe.bind(this)
+    this.isDisableBtn = this.isDisableBtn.bind(this)
   }
   updateState (newState) {
     this.setState(newState)
@@ -55,34 +60,46 @@ class ContributeForm extends Component {
   }
   updateAmount (e) {
     this.updateState({
-      amount: e.target.value * 100
+        amount: e.target.value * 100
     })
   }
   updateDetails (e) {
     this.updateState({
-      [e.target.name]: e.target.value
+        [e.target.name]: e.target.value
+    })
+  }
+  isDisableBtn() {
+    this.updateState({
+      paymentStep: this.state.paymentStep + 1,
+      isBtnDisabled: true
     })
   }
   submitToStripe (e) {
     e.preventDefault()
-    // const ContribAmountTotal = Number.parseInt(this.state.amount)
-    // console.log(ContribAmountTotal)
+    const postDetails = {
+      name: this.state.firstname + ' ' + this.state.lastname,
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
+      amount: this.state.amount,
+      email: this.state.email
+    }
     if (this.props.stripe) {
-      const name = this.state.name
+      const name = this.state.firstname + ' ' + this.state.lastname
       this.props.stripe.createToken({
           name
         })
-        .then((payload) => {
-          console.log('[token]', payload)
-          return postCharge(Object.assign(payload, this.state))
+        .then((token) => {
+          console.log('[token]', token)
+          return postCharge(Object.assign(token, postDetails))
         })
         .then(response => {
-          alert('Thank you for your contribution - we have sent you a confirmation email')
+          // console.log("Thank you for supporting Enspiral. Your payment has been processed.")
+          alert('Thank you for supporting Enspiral. Your payment has been processed. We have sent you a confirmation email.' )
           this.updateState({
-            firstname: '',
-            lastname: '',
-            email: '',
-            amount: ''
+              firstname: '',
+              lastname: '',
+              email: '',
+              amount: ''
           })
         })
         .catch(error => console.error('Error:', error))
@@ -92,16 +109,18 @@ class ContributeForm extends Component {
   }
   render () {
     return (
-        <div className="contributeContainer">
-          <ContributeHeader amount={this.state.amount} />
-          <div className='formWrapper'>
-            <StepsHeader 
-              paymentStep={this.state.paymentStep} 
-              />
-            <fieldset> 
-            {/* <legend>Please fill in your details below</legend> */}
-             <form id='contributeForm' className='form' onSubmit={this.submitToStripe}>
-              <FormStepper 
+      <div className="contributeContainer">
+        <ContributeHeader amount={this.state.amount} />
+        <div className="formWrapper">
+          <StepsHeader paymentStep={this.state.paymentStep} />
+          <fieldset>
+            {/* <legend>Please choose an amount you would like to contribute</legend> */}
+            <form
+              id="contributeForm"
+              className="form"
+              onSubmit={this.submitToStripe}
+            >
+              <FormStepper
                 paymentStep={this.state.paymentStep}
                 amount={this.state.amount}
                 firstname={this.state.firstname}
@@ -110,18 +129,20 @@ class ContributeForm extends Component {
                 chooseAmount={this.updateAmount}
                 updateDetails={this.updateDetails}
                 submitToStripe={this.submitToStripe}
-                />
-              <FormFooter 
-                paymentStep={this.state.paymentStep} 
-                stepOne={() => this.incrementStep()} 
+              />
+              <FormFooter
+                paymentStep={this.state.paymentStep}
+                stepOne={() => this.incrementStep()}
                 stepTwo={() => this.decrementStep()}
-                // handleSubmit={this.submitToStripe}
+                handleSubmit={this.submitToStripe}
+                disableBtn={this.disableBtn}
+                isBtnDisabled={this.state.isBtnDisabled}
               />
             </form>
           </fieldset>
-          </div>
+        </div>
       </div>
-    )
+    );
   }
 }
 
