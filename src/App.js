@@ -8,10 +8,10 @@ class App extends Component {
   render () {
     return (
       process.env.NODE_ENV === 'development'
-        ? <StripeProvider apiKey={config.stripeProdApiKey}>
+        ? <StripeProvider apiKey={config.stripeTestApiKey}>
           <FormWrapper />
         </StripeProvider>
-        : <StripeProvider apiKey={config.stripeProdApiKey}>
+        : <StripeProvider apiKey={config.stripeLiveApiKey}>
           <FormWrapper />
         </StripeProvider>
     )

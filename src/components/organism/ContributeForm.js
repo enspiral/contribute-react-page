@@ -9,8 +9,7 @@ import FormStepper from '../molecules/FormStepper';
 import FormFooter from '../molecules/FormFooter';
 
 // to-do: update with test charge processor url
-const chargeProcessor = process.env.NODE_ENV === 'development'
-        ? config.chargeProcessor : config.chargeProcessor
+const chargeProcessor = process.env.NODE_ENV === 'development' ? config.chargeProcessorTest : config.chargeProcessorLive
 
 const postCharge = payload => {
   console.log(payload)
