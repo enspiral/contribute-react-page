@@ -11,9 +11,9 @@ function FormStepper(props) {
     <div className="">
       {paymentStep === 1 && <ChooseAmount {...otherProps} />}
       {paymentStep === 2 && <InsertDetails {...otherProps} />}
-      {/* <ReactLoading ty */}
       {paymentStep === 3 && <ThankYou />}
-      {/* <ThankYou /> */}
+      {/* {paymentStep === 101 && <ErrorView />} */}
+      {/* {paymentStep === 102 && <ErrorView />} */}
     </div>
   )
 }
