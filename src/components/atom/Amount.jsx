@@ -7,6 +7,7 @@ function Amount(props) {
     <label className="selectContribAmount">${value}
       <input 
         id={"amount-" + value} 
+        // style={value === intAmount ? {BackgroundColor: "red"} }
         type="radio" 
         name={"amount-" + value}
         value={value}
