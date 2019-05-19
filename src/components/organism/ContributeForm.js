@@ -11,7 +11,7 @@ import FormFooter from '../molecules/FormFooter';
 // to-do: update with test charge processor url
 const chargeProcessor = process.env.NODE_ENV === 'development' ? config.chargeProcessorTest : config.chargeProcessorLive
 
-const postCharge = payload => {
+const postCharge = (payload, updateState) => {
   console.log(payload)
   console.log('Posting charge: ', payload.amount)
   return fetch(chargeProcessor, {
@@ -23,8 +23,15 @@ const postCharge = payload => {
   })
     .then(response => {
       if (response.status === 500) {
+        // this.updateState({
+        //   paymentStep: 102
+        // })
         console.log('ERROR: ', response)
       } else if (response.status === 204) {
+        updateState({
+          paymentStep: 3,
+          isLoading: false
+        })
         console.log('SUCCESS: ', response)
       } else {
         console.log('RESPONSE: ', response)
@@ -42,13 +49,14 @@ class ContributeForm extends Component {
       email: '',
       amount: '',
       paymentStep: 1,
-      isBtnDisabled: false
+      isLoading: false
     }
     this.updateState = this.updateState.bind(this)
     this.updateAmount = this.updateAmount.bind(this)
     this.updateDetails = this.updateDetails.bind(this)
     this.submitToStripe = this.submitToStripe.bind(this)
     this.isDisableBtn = this.isDisableBtn.bind(this)
+    // this.testLoading = this.testLoading.bind(this)
   }
   updateState (newState) {
     this.setState(newState)
@@ -75,12 +83,22 @@ class ContributeForm extends Component {
   }
   isDisableBtn() {
     this.updateState({
-      paymentStep: this.state.paymentStep + 1,
-      isBtnDisabled: true
+      isLoading: true
     })
   }
+  // testLoading() {
+  //   this.updateState({
+  //     isLoading: true
+  //   })
+  //   setTimeout(() => {
+  //     this.updateState({isLoading:false})
+  //   }, 5000)
+  // }
   submitToStripe (e) {
     e.preventDefault()
+    // this.updateState({
+    //       paymentStep: 101
+    //     })
     const postDetails = {
       name: this.state.firstname + ' ' + this.state.lastname,
       firstname: this.state.firstname,
@@ -95,11 +113,10 @@ class ContributeForm extends Component {
         })
         .then((token) => {
           console.log('[token]', token)
-          return postCharge(Object.assign(token, postDetails))
+          return postCharge(Object.assign(token, postDetails), this.updateState)
         })
         .then(response => {
           // console.log("Thank you for supporting Enspiral. Your payment has been processed.")
-          alert('Thank you for supporting Enspiral. Your payment has been processed. We have sent you a confirmation email.' )
           this.updateState({
               firstname: '',
               lastname: '',
@@ -139,9 +156,8 @@ class ContributeForm extends Component {
                 paymentStep={this.state.paymentStep}
                 stepOne={() => this.incrementStep()}
                 stepTwo={() => this.decrementStep()}
-                handleSubmit={this.submitToStripe}
-                disableBtn={this.disableBtn}
-                isBtnDisabled={this.state.isBtnDisabled}
+                isDisableBtn={this.isDisableBtn}
+                isLoading={this.state.isLoading}
               />
             </form>
           </fieldset>
@@ -152,3 +168,7 @@ class ContributeForm extends Component {
 }
 
 export default injectStripe(ContributeForm)
+
+// Todos: add isLaoding state update ?is true or false
+// change submit button to spinner? go for overlay
+// overlay organisam has is position absolute or relative to cover the form 
