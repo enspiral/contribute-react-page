@@ -55,7 +55,7 @@ class ContributeForm extends Component {
     this.updateAmount = this.updateAmount.bind(this)
     this.updateDetails = this.updateDetails.bind(this)
     this.submitToStripe = this.submitToStripe.bind(this)
-    this.isDisableBtn = this.isDisableBtn.bind(this)
+    this.processPayment = this.processPayment.bind(this)
   }
   updateState (newState) {
     this.setState(newState)
@@ -80,7 +80,7 @@ class ContributeForm extends Component {
         [e.target.name]: e.target.value
     })
   }
-  isDisableBtn() {
+  processPayment() {
     this.updateState({
       isLoading: true
     })
@@ -147,7 +147,7 @@ class ContributeForm extends Component {
                 paymentStep={this.state.paymentStep}
                 stepOne={() => this.incrementStep()}
                 stepTwo={() => this.decrementStep()}
-                isDisableBtn={this.isDisableBtn}
+                processPayment={this.processPayment}
                 isLoading={this.state.isLoading}
               />
             </form>
