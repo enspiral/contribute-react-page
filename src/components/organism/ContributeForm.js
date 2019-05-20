@@ -56,7 +56,6 @@ class ContributeForm extends Component {
     this.updateDetails = this.updateDetails.bind(this)
     this.submitToStripe = this.submitToStripe.bind(this)
     this.isDisableBtn = this.isDisableBtn.bind(this)
-    // this.testLoading = this.testLoading.bind(this)
   }
   updateState (newState) {
     this.setState(newState)
@@ -86,14 +85,6 @@ class ContributeForm extends Component {
       isLoading: true
     })
   }
-  // testLoading() {
-  //   this.updateState({
-  //     isLoading: true
-  //   })
-  //   setTimeout(() => {
-  //     this.updateState({isLoading:false})
-  //   }, 5000)
-  // }
   submitToStripe (e) {
     e.preventDefault()
     // this.updateState({
