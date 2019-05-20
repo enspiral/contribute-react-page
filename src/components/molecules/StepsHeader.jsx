@@ -8,7 +8,7 @@ function StepsHeader (props) {
   return (
     <div className="stepsHeader">
       {paymentStep === 1 && 
-      <StepOne stepOne='boldStep'/>
+      <StepOne stepOne='boldStep'/> 
       }
       {paymentStep === 2 && <StepTwo stepTwo='boldStep'/>}
     </div>

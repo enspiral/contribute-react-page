@@ -2,11 +2,11 @@
 // Note: Shopify doesn't support sass import statements so all styling should be provided in this one file
 // The code snippets for the production urls of image assets are commented out for reference
 
-$color-accent:#9169d8;
-$color-dark-accent: #331a5f;
-$color-background: #9169d8; 
-$color-medium-border: #9169d8;
-$color-light-border: #b5a4ed;
+$color-accent:#013264;
+$color-background: #034587; 
+$color-dark-accent:#013264;
+$color-medium-border: #013264;
+$color-light-border: #68a9ea;
 
 body {
   display: flex;
@@ -21,6 +21,7 @@ body {
 }
 
 .contributeContainer {
+  width: auto;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -28,14 +29,14 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: $color-background;
   // these paddings are based on where the container the form is rendered into
-  padding: 20px 30px 10px 30px;
+  padding: 20px 30px 30px 30px;
   border-radius: 4px;
   
   .form {
     display: flex;
     flex-direction: column;
     margin: 0;
-    // height: 300px;
+    width: 300px;
   }
 
   .header {
@@ -52,6 +53,10 @@ body {
       padding: 10px;
   }
 
+  .formHeader {
+    color: white;
+  }
+
   .stepsHeader {
     display: flex;
     flex: row;
@@ -64,12 +69,11 @@ body {
 
     p { 
        margin: 0;
-       padding: 10px;
     }
     
     .boldStep {
       font-weight: bold;
-      color: black;
+      color: rgb(190, 190, 190);
     }
   }
 
@@ -118,7 +122,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
+    margin: 10px 0 auto;
     height: 80px;
 
     .customAmount {
@@ -141,9 +145,9 @@ body {
 
   .formFooter {
     display: flex;
-    margin-top: 50px;
-    padding-bottom: 10px; 
     justify-content: space-between;
+    border-top: solid 0.5px lightgray;
+    margin-top: 20px;
   }
 
   button {
@@ -178,10 +182,10 @@ body {
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
   #creditCard {
-    // background-color:$color-light-border  ;
+    background-color:$color-light-border  ;
     color: $color-accent;
-    margin: 20px 0 6px 0;
-    width: 300px;
+    padding: 10px;
+    margin: 10px 0 6px 0;
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
 
@@ -191,9 +195,17 @@ body {
 
   .cardDetailFields {
     margin: 10px;
-    padding: 10px;
-    background-color:$color-light-border;
+    padding: 5px;
+    background-color:white;
     border-radius: 6px;  
+  }
+
+  .thankYou {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    text-align: center;
+    font-size: 12px;
   }
 
   fieldset {
@@ -201,6 +213,7 @@ body {
     width: auto;
     border: 1px solid $color-light-border;
     border-radius: 6px;
+    padding: 20px;
   }
 
   legend {

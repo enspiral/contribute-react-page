@@ -1,7 +1,7 @@
 import React from 'react'
 
 function FormFooter(props) {
-  const {paymentStep, stepOne, stepTwo, isDisableBtn, isLoading} = props
+  const {paymentStep, stepOne, stepTwo, processPayment, isLoading} = props
   return (
     <div>
       {paymentStep === 1 && <div className="formFooter">
@@ -9,9 +9,9 @@ function FormFooter(props) {
       </div>}
       {paymentStep === 2 && <div className="formFooter">
         <button onClick={stepTwo} className='editBtn'>&larr; Edit Amount</button>
-        <button onClick={isDisableBtn} disabled={isLoading}>
+        <button onClick={processPayment} disabled={isLoading}>
           {!isLoading && "Confirm Payment"}
-          {isLoading && "Processing your payment"}
+          {isLoading && "Processing..."}
         </button>
       </div>}
       {paymentStep === 3 && <div className="formFooter">
