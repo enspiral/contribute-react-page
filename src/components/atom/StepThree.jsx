@@ -3,7 +3,7 @@ import React from 'react'
 function StepTwo(props) {
   return (
     <div>
-      <p className={props.boldStep}>&#10123; Details</p>
+        <p className={props.boldStep}>&#10124; Confirmed</p>
     </div>
   )
 }
