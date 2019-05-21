@@ -8,7 +8,7 @@ import ContributeForm from './organism/ContributeForm'
 class FormWrapper extends Component {
   render () {
     return (
-      <Elements className='contributeWrapper'>
+      <Elements>
         <ContributeForm />
       </Elements>
     )
