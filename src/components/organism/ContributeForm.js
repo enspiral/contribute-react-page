@@ -8,7 +8,6 @@ import ContributeHeader from '../molecules/ContributeHeader';
 import FormStepper from '../molecules/FormStepper';
 import FormFooter from '../molecules/FormFooter';
 
-// to-do: update with test charge processor url
 const chargeProcessor = process.env.NODE_ENV === 'development' ? config.chargeProcessorTest : config.chargeProcessorLive
 
 const postCharge = (payload, updateState) => {
@@ -23,9 +22,9 @@ const postCharge = (payload, updateState) => {
   })
     .then(response => {
       if (response.status === 500) {
-        // this.updateState({
-        //   paymentStep: 102
-        // })
+        this.updateState({
+          paymentStep: 101
+        })
         console.log('ERROR: ', response)
       } else if (response.status === 204) {
         updateState({
@@ -107,12 +106,12 @@ class ContributeForm extends Component {
           return postCharge(Object.assign(token, postDetails), this.updateState)
         })
         .then(response => {
-          // console.log("Thank you for supporting Enspiral. Your payment has been processed.")
+          console.log("Thank you for supporting Enspiral. Your payment has been processed.")
           this.updateState({
-              firstname: '',
-              lastname: '',
-              email: '',
-              amount: ''
+              // firstname: '',
+              // lastname: '',
+              // email: '',
+              // amount: ''
           })
         })
         .catch(error => console.error('Error:', error))
@@ -159,7 +158,3 @@ class ContributeForm extends Component {
 }
 
 export default injectStripe(ContributeForm)
-
-// Todos: add isLaoding state update ?is true or false
-// change submit button to spinner? go for overlay
-// overlay organisam has is position absolute or relative to cover the form 
