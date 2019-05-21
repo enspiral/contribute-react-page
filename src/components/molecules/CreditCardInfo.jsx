@@ -5,7 +5,7 @@ const cardStyle = {
   base: {
     color: "808080",
     fontSize: "13px",
-    fontSmoothing: 'antialiased',
+    fontSmoothing: "antialiased",
 
     ":focus": {
       color: "black",
@@ -16,13 +16,13 @@ const cardStyle = {
     },
 
     ":focus::placeholder": {
-      color: "black",
+      color: "#80808085",
     },
   },
   invalid: {
     color: "black",
     ":focus": {
-      color: "black",
+      color: "red",
     },
     "::placeholder": {
       color: "#808080",
