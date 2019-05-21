@@ -106,13 +106,13 @@ class ContributeForm extends Component {
           return postCharge(Object.assign(token, postDetails), this.updateState)
         })
         .then(response => {
-          console.log("Thank you for supporting Enspiral. Your payment has been processed.")
-          this.updateState({
-              // firstname: '',
-              // lastname: '',
-              // email: '',
-              // amount: ''
-          })
+          console.log("Payment processed.")
+          // this.updateState({
+          //     firstname: '',
+          //     lastname: '',
+          //     email: '',
+          //     amount: ''
+          // })
         })
         .catch(error => console.error('Error:', error))
     } else {
@@ -126,7 +126,6 @@ class ContributeForm extends Component {
         <div className="formWrapper">
           <StepsHeader paymentStep={this.state.paymentStep} />
           <fieldset>
-            {/* <legend>Please choose an amount you would like to contribute</legend> */}
             <form
               id="contributeForm"
               className="form"
