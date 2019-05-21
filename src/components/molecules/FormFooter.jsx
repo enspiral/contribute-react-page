@@ -20,9 +20,6 @@ function FormFooter(props) {
           {isLoading && <span>Processing...</span>}
         </button>
       </div>}
-      {/* {paymentStep === 3 && <div className="formFooter">
-        <button>Questions? Contact us</button>
-      </div>} */}
     </div>
     )
   }
