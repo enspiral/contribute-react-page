@@ -16,7 +16,7 @@ function FormFooter(props) {
         <button onClick={stepTwo} className='editBtn'>&larr; Edit Amount</button>
         <button onClick={processPayment} disabled={isLoading}>
           {!isLoading && "Confirm Payment"}
-          {isLoading && <img alt='' src='../../loadingIcon.gif'/>}
+          {isLoading && <img alt='' src='https://gifimage.net/wp-content/uploads/2017/09/ajax-loading-gif-transparent-background-8.gif' height='18px' width='18px'/>}
           {isLoading && <span>Processing...</span>}
         </button>
       </div>}
