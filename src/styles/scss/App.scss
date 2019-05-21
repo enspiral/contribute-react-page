@@ -60,9 +60,9 @@ body {
   .stepsHeader {
     display: flex;
     flex: row;
-    color: lightgray;
-    margin: 15px 0px 30px 0px;
-    border-bottom: 1px solid gray;
+    color: rgba(211, 211, 211, 0.235);
+    margin: 15px 0px 15px 0px;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.235);
     justify-content: space-around;
     font-size: 15px;
     width: auto;
@@ -70,13 +70,11 @@ body {
     p { 
        margin: 0;
     }
-    
     .boldStep {
       font-weight: bold;
-      color: rgb(190, 190, 190);
+      color: rgb(228, 228, 228);
     }
   }
-
    .selectionRow {
      display: flex;
      flex-flow: row wrap;
@@ -106,15 +104,15 @@ body {
         border-color: #6d90b3;
       }
 
-      &:active{
-        color: white;
-        background-color: rgb(0, 138, 143);
-        border-color: #343a40;
-      }
-      &:focus-within{
-        color: white;
-        background-color: rgb(5, 102, 105);
-      }
+      // &:active{
+      //   color: white;
+      //   background-color: rgb(0, 138, 143);
+      //   border-color: #343a40;
+      // }
+      // &:focus-within{
+      //   color: white;
+      //   background-color: rgb(5, 102, 105);
+      // }
   }
     
   .otherAmount {
@@ -151,7 +149,9 @@ body {
   }
 
   button {
-    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     height: 40px;
     margin: 20px 0 0;
     background-color: $color-accent;
@@ -163,8 +163,8 @@ body {
   }
 
   button:disabled {
-    background-color: lightgrey;
-    color: white;
+    background-color: rgb(232, 232, 232);
+    color: rgb(150, 150, 150);
     cursor: no-drop;
   }
 
