@@ -1,13 +1,13 @@
 import React from 'react'
-import { whileStatement } from '@babel/types';
 
 function Amount(props) {
   const {amount, value, handleChange} = props
   const intAmount = Number.parseInt(amount/100)
   const focusedBtn = value == intAmount 
-    ? {backgroundColor: "grey", 
+    ? {backgroundColor: "#0064a2a7", 
       color: "white"} 
-    : {backgroundColor: "white"}
+    : {backgroundColor: "white",
+      color:"black"}
   return (
     <label 
       className="selectContribAmount" 
