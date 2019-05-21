@@ -3,29 +3,29 @@ import { CardNumberElement, CardExpiryElement,CardCVCElement } from 'react-strip
 
 const cardStyle = {
   base: {
-    color: "white",
+    color: "808080",
     fontSize: "13px",
     fontSmoothing: 'antialiased',
 
     ":focus": {
-      color: "white",
+      color: "black",
     },
 
     "::placeholder": {
-      color: "##6d90b300",
+      color: "#80808085",
     },
 
     ":focus::placeholder": {
-      color: "#CFD7DF",
+      color: "black",
     },
   },
   invalid: {
-    color: "#fff",
+    color: "black",
     ":focus": {
-      color: "#FA755A",
+      color: "black",
     },
     "::placeholder": {
-      color: "#FFCCA5",
+      color: "#808080",
     },
   },
 };
