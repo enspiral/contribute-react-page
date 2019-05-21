@@ -41,7 +41,6 @@ function ChooseAmount (props) {
               handleChange={chooseAmount}
             />
           </div>
-          {/* if quick amount  */}
           <div className="selectionRow">
             <OtherAmount value={amount}
               handleChange={chooseAmount}/>
