@@ -86,9 +86,6 @@ class ContributeForm extends Component {
   }
   submitToStripe (e) {
     e.preventDefault()
-    // this.updateState({
-    //       paymentStep: 101
-    //     })
     const postDetails = {
       name: this.state.firstname + ' ' + this.state.lastname,
       firstname: this.state.firstname,
@@ -107,6 +104,8 @@ class ContributeForm extends Component {
         })
         .then(response => {
           console.log("Payment processed.")
+          // Don't need to updateState now, because want to retain first name in Thank you page
+
           // this.updateState({
           //     firstname: '',
           //     lastname: '',
