@@ -98,11 +98,11 @@ body {
       box-shadow .15s ease-in-out;
     border: 1px solid grey;
 
-      &:hover {
-        color: white;
-        background-color: black;
-        border-color: #6d90b3;
-      }
+      // &:hover {
+      //   color: #0064a2a7;
+      //   background-color: black;
+      //   border-color: #6d90b3;
+      // }
 
       // &:active{
       //   color: white;
@@ -134,7 +134,7 @@ body {
       #customAmount {
         width: 90%;
         margin-left: 5px;
-        background-color: #afafaf;
+        background-color: #afafafa0;
         padding: 5px 10px;
         color: white; 
       }
