@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Testing the Credit Card locally
+
+We are using stripe elements to build a credit card contribute form. The request is sent through a proxy hosted firebase function. When running locally the codebase is setup to use the stripe test api key. For this to work you need to use the credit [card numbers listed here](https://stripe.com/docs/testing). eg
+
+ - visa no: 4242424242424242
+ - a valid expiration date in the future
+ - any random CVC number, 
+
 ## Available Scripts
 
 In the project directory, you can run:

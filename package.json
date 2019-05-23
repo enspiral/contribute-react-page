@@ -1,11 +1,14 @@
 {
-  "name": "contribute-page-v2",
+  "name": "contribute-react-page",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash": "^4.17.11",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8",
+    "react-loading": "^2.0.3",
+    "react-scripts": "^3.0.0",
     "react-stripe-elements": "^2.0.3"
   },
   "scripts": {
@@ -13,8 +16,11 @@
     "build": "npm run sass:build && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sass:watch": "node-sass -w src/styles/scss -o src/styles/css",
-    "sass:build": "node-sass src/styles/scss -o src/styles/css --source-map true"
+    "sass": "sass --watch src/styles/scss:src/styles/css",
+    "sass:watch": "node_modules/.bin/node-sass -w src/styles/scss -o src/styles/css",
+    "sass:build": "node_modules/.bin/node-sass src/styles/scss -o src/styles/css --source-map true",
+    "lint": "node_modules/.bin/standard src/**/*.js",
+    "lint:fix": "node_modules/.bin/standard src/**/*.js --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -26,6 +32,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.12.0",
+    "standard": "^12.0.1"
   }
 }

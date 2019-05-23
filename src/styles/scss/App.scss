@@ -2,44 +2,176 @@
 // Note: Shopify doesn't support sass import statements so all styling should be provided in this one file
 // The code snippets for the production urls of image assets are commented out for reference
 
-$color-accent: #fff;
-$color-dark-accent: #eaebff;
-$color-background: #9169d8; 
-$color-medium-border: #a988ec;
-$color-light-border: #b5a4ed;
+$color-accent:#013264;
+$color-background: #034587; 
+$color-dark-accent:#013264;
+$color-medium-border: #013264;
+$color-light-border: #68a9ea;
+
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#root-contribute {
+  width: 400px;
+}
 
 .contributeContainer {
+  width: auto;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
   background-color: $color-background;
   // these paddings are based on where the container the form is rendered into
-  padding: 20px 30px 10px 30px;
+  padding: 20px 30px 30px 30px;
   border-radius: 4px;
   
   .form {
     display: flex;
     flex-direction: column;
     margin: 0;
+    width: 300px;
   }
 
   .header {
     padding: 20px;
   }
   
- 
+  .sectionWrapper {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .paymentSteps {
+      border: 1px solid white;
+      padding: 10px;
+  }
+
+  .formHeader {
+    color: white;
+  }
+
+  .stepsHeader {
+    display: flex;
+    flex: row;
+    color: rgba(211, 211, 211, 0.235);
+    margin: 15px 0px 15px 0px;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.235);
+    justify-content: space-around;
+    font-size: 15px;
+    width: auto;
+
+    p { 
+       margin: 0;
+    }
+    .boldStep {
+      font-weight: bold;
+      color: rgb(228, 228, 228);
+    }
+  }
+   .selectionRow {
+     display: flex;
+     flex-flow: row wrap;
+     justify-content: space-between;
+   }
+
+  .selectContribAmount {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    margin: 5px;
+    border-radius: 10px;
+    transition: color .15s ease-in-out,
+      background-color .15s ease-in-out,
+      border-color .15s ease-in-out,
+      box-shadow .15s ease-in-out;
+    border: 1px solid grey;
+
+      // &:hover {
+      //   color: #0064a2a7;
+      //   background-color: black;
+      //   border-color: #6d90b3;
+      // }
+
+      // &:active{
+      //   color: white;
+      //   background-color: rgb(0, 138, 143);
+      //   border-color: #343a40;
+      // }
+      // &:focus-within{
+      //   color: white;
+      //   background-color: rgb(5, 102, 105);
+      // }
+  }
+    
+  .otherAmount {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 auto;
+    height: 80px;
+
+    .customAmount {
+      font-size: 10px;
+    }
+
+    .insertAmount {
+      display: flex;
+      padding: 10px;
+
+      #customAmount {
+        width: 90%;
+        margin-left: 5px;
+        background-color: #afafafa0;
+        padding: 5px 10px;
+        color: white; 
+      }
+    }
+  }
+
+  .formFooter {
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 0.5px lightgray;
+    margin-top: 20px;
+  }
 
   button {
-    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     height: 40px;
     margin: 20px 0 0;
     background-color: $color-accent;
     border-radius: 6px;
-    color: $color-background;
+    color: white;;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
+  }
+
+  button:disabled {
+    background-color: rgb(232, 232, 232);
+    color: rgb(150, 150, 150);
+    cursor: no-drop;
+  }
+
+  .editBtn {
+    background-color: white;
+    color: black;
+    border: 1px black solid;
   }
 
   #card {
@@ -49,20 +181,49 @@ $color-light-border: #b5a4ed;
     border-bottom: 1px solid $color-medium-border;
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
+  #creditCard {
+    background-color:$color-light-border  ;
+    color: $color-accent;
+    padding: 10px;
+    margin: 10px 0 6px 0;
+    transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
+  }
+
+  .cardBody {
+    width: 100%;
+  }
+
+  .cardDetailFields {
+    margin: 10px;
+    padding: 5px;
+    background-color:white;
+    border-radius: 6px;  
+  }
+
+  .thankYou {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    text-align: center;
+    font-size: 12px;
+  }
 
   fieldset {
-    width:100%;
+    background-color: white;
+    width: auto;
     border: 1px solid $color-light-border;
     border-radius: 6px;
+    padding: 20px;
   }
 
   legend {
-    margin: 0 auto;
-    padding: 0 10px;
+    background-color: white;
+    border-radius: 6px;
+    // margin: 0 auto;
+    padding: 5px 10px;
     text-align: center;
-    font-size: 15px;
-    font-weight: 500;
-    color: $color-dark-accent;
+    font-size: 12px;
+    color: black;
   }
 
   .card-only {
@@ -113,21 +274,25 @@ $color-light-border: #b5a4ed;
     transition: border-color 0.3s (0.165, 0.84, 0.44, 1);
   }
 
-  .terms {
-    color: white;
-  }
-
   input[type=text], input[type=email], input[type=number], input[type=tel] {
     font-size:  15px;
-    color: white;
+    color: rgb(110, 110, 110);
+  }
+
+  input[type=radio] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
   }
 
   input::placeholder{
     font-weight: 100;
-    color:$color-accent;
+    color:white;
     font-size: 14px;
-    opacity: 0.2;
+    opacity: 0.3;
+  }
+  
+  .terms {
+    color: white;
   }
 }
-
-

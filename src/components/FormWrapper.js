@@ -3,12 +3,12 @@ import { Elements } from 'react-stripe-elements'
 
 import '../styles/css/App.css'
 
-import ContributeForm from './ContributeForm'
+import ContributeForm from './organism/ContributeForm'
 
 class FormWrapper extends Component {
   render () {
     return (
-      <Elements className='contributeWrapper'>
+      <Elements>
         <ContributeForm />
       </Elements>
     )

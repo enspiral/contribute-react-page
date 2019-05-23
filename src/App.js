@@ -11,7 +11,7 @@ class App extends Component {
         ? <StripeProvider apiKey={config.stripeTestApiKey}>
           <FormWrapper />
         </StripeProvider>
-        : <StripeProvider apiKey={config.stripeProdApiKey}>
+        : <StripeProvider apiKey={config.stripeLiveApiKey}>
           <FormWrapper />
         </StripeProvider>
     )
