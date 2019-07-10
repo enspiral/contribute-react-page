@@ -59,6 +59,11 @@ class ContributeForm extends Component {
   updateState (newState) {
     this.setState(newState)
   }
+  resetStep () { 
+    this.updateState({
+      paymentStep: 1
+    })
+  }
   incrementStep () { 
     this.updateState({
       paymentStep: this.state.paymentStep + 1
@@ -123,7 +128,12 @@ class ContributeForm extends Component {
       <div className="contributeContainer">
         <ContributeHeader amount={this.state.amount} />
         <div className="formWrapper">
-          <StepsHeader paymentStep={this.state.paymentStep} />
+          <StepsHeader paymentStep={
+            this.state.paymentStep} 
+            resetStep={() => this.resetStep()}
+            incrementStep={() => this.incrementStep()}
+            decrementStep={() => this.decrementStep()}
+            />
           <fieldset>
             <form
               id="contributeForm"
@@ -141,8 +151,8 @@ class ContributeForm extends Component {
               />
               <FormFooter
                 paymentStep={this.state.paymentStep}
-                stepOne={() => this.incrementStep()}
-                stepTwo={() => this.decrementStep()}
+                incrementStep={() => this.incrementStep()}
+                decrementStep={() => this.decrementStep()}
                 setLoadingTrue={this.setLoadingTrue}
                 submitToStripe={this.submitToStripe}
                 isLoading={this.state.isLoading}
