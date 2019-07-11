@@ -1,5 +1,5 @@
 import React, { Component }from 'react'
-import { CardNumberElement, CardExpiryElement,CardCVCElement } from 'react-stripe-elements'
+import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stripe-elements'
 
 const cardStyle = {
   base: {
@@ -44,11 +44,11 @@ class CreditCardInfo extends Component {
           <div className='cardDetailFields'>
             <CardNumberElement style={cardStyle} classes={cardClasses}/>
           </div>
-           <div className='cardDetailFields'>
+          <div className='cardDetailFields'>
             <CardExpiryElement style={cardStyle} classes={cardClasses}/>
           </div>
           <div className='cardDetailFields'>
-          <CardCVCElement style={cardStyle} classes={cardClasses}/>
+            <CardCVCElement style={cardStyle} classes={cardClasses}/>
           </div>
       </fieldset>
     );

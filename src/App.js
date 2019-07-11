@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
-import { StripeProvider } from 'react-stripe-elements'
+import { Elements, StripeProvider } from 'react-stripe-elements'
 
 import { config } from './config.js'
-import FormWrapper from './components/FormWrapper'
+import ContributeForm from './containers/ContributeForm'
 
 class App extends Component {
   render () {
     return (
       process.env.NODE_ENV === 'development'
         ? <StripeProvider apiKey={config.stripeTestApiKey}>
-          <FormWrapper />
+          <Elements>
+            <ContributeForm />
+          </Elements>
         </StripeProvider>
         : <StripeProvider apiKey={config.stripeLiveApiKey}>
-          <FormWrapper />
+          <Elements>
+            <ContributeForm />
+          </Elements>
         </StripeProvider>
     )
   }

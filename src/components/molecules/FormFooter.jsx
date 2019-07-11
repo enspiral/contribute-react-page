@@ -1,7 +1,7 @@
 import React from 'react'
 
 function FormFooter(props) {
-  const {paymentStep, incrementStep, decrementStep, setLoadingTrue, submitToStripe, isLoading} = props
+  const {paymentStep, incrementStep, decrementStep, setLoadingTrue, submitToStripe, isLoading, disableConfirm} = props
   const positionRight = {
     float: "right", 
     marginLeft:"auto"
@@ -10,6 +10,7 @@ function FormFooter(props) {
     setLoadingTrue()
     submitToStripe(e)
   }
+  //todo refactor out atoms
   return (
     <div>
       {paymentStep === 1 && <div className="formFooter">
@@ -18,7 +19,7 @@ function FormFooter(props) {
       {paymentStep === 2 && 
         <div className="formFooter">
         <button onClick={decrementStep} className='editBtn'>&larr; Edit Amount</button>
-        <button onClick={process} disabled={isLoading}>
+        <button onClick={process} disabled={disableConfirm}>
           {!isLoading && "Confirm Payment"}
           {isLoading && <img alt='' src='https://gifimage.net/wp-content/uploads/2017/09/ajax-loading-gif-transparent-background-8.gif' height='18px' width='18px'/>}
           {isLoading && <span>Processing...</span>}

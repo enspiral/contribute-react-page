@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { injectStripe } from 'react-stripe-elements'
+import { config } from '../config'
 
-import { config } from '../../config'
+import OrganisimContributeForm from '../components/organisms/ContributeForm'
 
-import StepsHeader from '../molecules/StepsHeader'
-import ContributeHeader from '../molecules/ContributeHeader';
-import FormStepper from '../molecules/FormStepper';
-import FormFooter from '../molecules/FormFooter';
+import '../styles/css/App.css'
 
 const chargeProcessor = process.env.NODE_ENV === 'development' ? config.chargeProcessorTest : config.chargeProcessorLive
 
@@ -22,7 +20,7 @@ const postCharge = (payload, updateState) => {
   })
     .then(response => {
       if (response.status === 500) {
-        this.updateState({
+        updateState({
           paymentStep: 101
         })
         console.log('ERROR: ', response)
@@ -48,13 +46,18 @@ class ContributeForm extends Component {
       email: '',
       amount: '',
       paymentStep: 1,
-      isLoading: false
+      isLoading: false,
+      disableConfirm: true,
+      ccNumberEmptyOrError: true,
+      ccExpireryEmptryOrError: true,
+      ccCVCEmptyOrError: true
     }
     this.updateState = this.updateState.bind(this)
     this.updateAmount = this.updateAmount.bind(this)
     this.updateDetails = this.updateDetails.bind(this)
     this.submitToStripe = this.submitToStripe.bind(this)
     this.setLoadingTrue = this.setLoadingTrue.bind(this)
+    this.updateConfirm = this.updateConfirm.bind(this)
   }
   updateState (newState) {
     this.setState(newState)
@@ -86,7 +89,13 @@ class ContributeForm extends Component {
   }
   setLoadingTrue() {
     this.updateState({
-      isLoading: true
+      isLoading: true,
+      disableConfirm: true
+    })
+  }
+  updateConfirm() {
+    this.updateState({
+      disableConfirm: this.ccNumberEmptyOrError + this.ccExpireryEmptryOrError + this.ccCVCEmptyOrError
     })
   }
   submitToStripe (e) {
@@ -100,68 +109,35 @@ class ContributeForm extends Component {
     }
     if (this.props.stripe) {
       const name = this.state.firstname + ' ' + this.state.lastname
-      this.props.stripe.createToken({
-          name
-        })
-        .then((token) => {
-          console.log('[token]', token)
-          return postCharge(Object.assign(token, postDetails), this.updateState)
-        })
-        .then(response => {
-          console.log("Payment processed.")
-          // Don't need to updateState now, because want to retain first name in Thank you page
-
-          // this.updateState({
-          //     firstname: '',
-          //     lastname: '',
-          //     email: '',
-          //     amount: ''
-          // })
-        })
-        .catch(error => console.error('Error:', error))
+      this.props.stripe.createToken({name})
+      .then((token) => {
+        return postCharge(Object.assign(token, postDetails), this.updateState)
+      })
     } else {
       console.log("Stripe.js hasn't loaded yet.");
     }
   }
   render () {
     return (
-      <div className="contributeContainer">
-        <ContributeHeader amount={this.state.amount} />
-        <div className="formWrapper">
-          <StepsHeader paymentStep={
-            this.state.paymentStep} 
-            resetStep={() => this.resetStep()}
-            incrementStep={() => this.incrementStep()}
-            decrementStep={() => this.decrementStep()}
-            />
-          <fieldset>
-            <form
-              id="contributeForm"
-              className="form"
-              onSubmit={this.submitToStripe}
-            >
-              <FormStepper
-                paymentStep={this.state.paymentStep}
-                amount={this.state.amount}
-                firstname={this.state.firstname}
-                lastname={this.state.lastname}
-                email={this.state.email}
-                chooseAmount={this.updateAmount}
-                updateDetails={this.updateDetails}
-              />
-              <FormFooter
-                paymentStep={this.state.paymentStep}
-                incrementStep={() => this.incrementStep()}
-                decrementStep={() => this.decrementStep()}
-                setLoadingTrue={this.setLoadingTrue}
-                submitToStripe={this.submitToStripe}
-                isLoading={this.state.isLoading}
-              />
-            </form>
-          </fieldset>
-        </div>
-      </div>
-    );
+      <OrganisimContributeForm
+        paymentStep={this.state.paymentStep}
+        setLoadingTrue={this.setLoadingTrue}
+        submitToStripe={this.submitToStripe}
+        isLoading={this.state.isLoading}
+        amount={this.state.amount}
+        firstname={this.state.firstname}
+        lastname={this.state.lastname}
+        email={this.state.email}
+        disableConfirm={this.state.disableConfirm}
+        resetStep={() => this.resetStep()}
+        incrementStep={() => this.incrementStep()}
+        decrementStep={() => this.decrementStep()}
+        updateConfirm={() => this.updateConfirm()}
+        updateDetails={this.updateDetails}
+        updateAmount={this.updateAmount}
+        updateState={this.updateState}
+      />
+    )
   }
 }
 
